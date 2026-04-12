@@ -4,11 +4,11 @@ import { experiences, personalInfo } from "@/lib/data";
 export const metadata: Metadata = {
   title: "About",
   description:
-    "Learn more about Alex Chen — a full-stack developer with 4+ years of experience building scalable web applications.",
+    "Learn more about Detnarin Chaiaksorn — a Computer Science student and Full-Stack Developer with internship experience at FORVIZ, interested in IoT and technology innovations.",
   openGraph: {
-    title: "About | Alex Chen",
+    title: "About | Detnarin Chaiaksorn",
     description:
-      "Learn more about Alex Chen — a full-stack developer with 4+ years of experience.",
+      "Computer Science student & Full-Stack Developer. Internship at FORVIZ. Interested in IoT and technology innovations.",
   },
 };
 

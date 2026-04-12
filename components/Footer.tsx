@@ -14,10 +14,10 @@ export default function Footer() {
               href="/"
               className="text-base font-semibold tracking-tight text-[var(--color-text)] hover:opacity-70 transition-opacity"
             >
-              Alex<span className="text-[var(--color-accent)]">.</span>
+              {personalInfo.name.split(" ")[0]}<span className="text-[var(--color-accent)]">.</span>
             </Link>
             <p className="mt-1 text-sm text-[var(--color-muted)]">
-              Full-Stack Developer
+              {personalInfo.role}
             </p>
           </div>
 

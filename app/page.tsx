@@ -4,13 +4,13 @@ import ProjectCard from "@/components/ProjectCard";
 import { personalInfo, projects } from "@/lib/data";
 
 export const metadata: Metadata = {
-  title: "Alex Chen — Full-Stack Developer",
+  title: "Detnarin Chaiaksorn — Full-Stack Developer",
   description:
-    "Full-stack developer crafting scalable web applications with React, Next.js, and Node.js.",
+    "Computer Science student & Full-Stack Developer. Experienced in React, Next.js, Python, and IoT systems.",
   openGraph: {
-    title: "Alex Chen — Full-Stack Developer",
+    title: "Detnarin Chaiaksorn — Full-Stack Developer",
     description:
-      "Full-stack developer crafting scalable web applications with React, Next.js, and Node.js.",
+      "Computer Science student & Full-Stack Developer. Experienced in React, Next.js, Python, and IoT systems.",
   },
 };
 
@@ -23,7 +23,7 @@ export default function HomePage() {
       <section className="border-b border-[var(--color-border)] bg-[var(--color-surface)]">
         <div className="mx-auto max-w-5xl px-6 py-24 sm:py-32">
           <p className="mb-4 text-sm font-medium tracking-widest text-[var(--color-accent)] uppercase">
-            Available for freelance
+            CS Student @ UTCC
           </p>
           <h1 className="text-4xl font-bold tracking-tight text-[var(--color-text)] sm:text-5xl lg:text-6xl">
             Hi, I&apos;m{" "}
@@ -73,9 +73,9 @@ export default function HomePage() {
           {/* Quick stats */}
           <div className="mt-14 flex flex-wrap gap-8">
             {[
-              { label: "Years Experience", value: "4+" },
-              { label: "Projects Shipped", value: "30+" },
-              { label: "Happy Clients", value: "20+" },
+              { label: "Internship", value: "1" },
+              { label: "Projects", value: "6+" },
+              { label: "Award Won", value: "1" },
             ].map((stat) => (
               <div key={stat.label}>
                 <p className="text-2xl font-bold text-[var(--color-text)]">
