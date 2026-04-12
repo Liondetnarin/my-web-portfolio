@@ -12,24 +12,24 @@ const inter = Inter({
 
 export const metadata: Metadata = {
   title: {
-    default: "Alex Chen — Full-Stack Developer",
-    template: "%s | Alex Chen",
+    default: "Detnarin Chaiaksorn — Full-Stack Developer",
+    template: "%s | Detnarin Chaiaksorn",
   },
   description:
-    "Full-stack developer specializing in React, Next.js, and Node.js. Building scalable web applications with modern best practices.",
+    "Computer Science student & Full-Stack Developer specializing in React, Next.js, Node.js, and Python. Interested in IoT, hardware systems, and technology innovations.",
   openGraph: {
     type: "website",
     locale: "en_US",
-    siteName: "Alex Chen Portfolio",
-    title: "Alex Chen — Full-Stack Developer",
+    siteName: "Detnarin Chaiaksorn Portfolio",
+    title: "Detnarin Chaiaksorn — Full-Stack Developer",
     description:
-      "Full-stack developer specializing in React, Next.js, and Node.js. Building scalable web applications with modern best practices.",
+      "Computer Science student & Full-Stack Developer specializing in React, Next.js, Node.js, and Python.",
   },
   twitter: {
     card: "summary_large_image",
-    title: "Alex Chen — Full-Stack Developer",
+    title: "Detnarin Chaiaksorn — Full-Stack Developer",
     description:
-      "Full-stack developer specializing in React, Next.js, and Node.js.",
+      "Computer Science student & Full-Stack Developer. React, Next.js, Python, and more.",
   },
   robots: {
     index: true,

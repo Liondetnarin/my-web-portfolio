@@ -5,10 +5,10 @@ import { personalInfo } from "@/lib/data";
 export const metadata: Metadata = {
   title: "Contact",
   description:
-    "Get in touch with Alex Chen — available for freelance projects, collaborations, and full-time roles.",
+    "Get in touch with Detnarin Chaiaksorn — open to internship opportunities, collaborations, and full-time roles.",
   openGraph: {
-    title: "Contact | Alex Chen",
-    description: "Get in touch with Alex Chen for your next project.",
+    title: "Contact | Detnarin Chaiaksorn",
+    description: "Get in touch with Detnarin Chaiaksorn.",
   },
 };
 
@@ -38,7 +38,7 @@ const socialLinks = [
   {
     label: "GitHub",
     href: personalInfo.github,
-    value: "github.com/alexchen",
+    value: "github.com/Liondetnarin",
     icon: (
       <svg
         xmlns="http://www.w3.org/2000/svg"
@@ -55,7 +55,7 @@ const socialLinks = [
   {
     label: "LinkedIn",
     href: personalInfo.linkedin,
-    value: "linkedin.com/in/alexchen",
+    value: "linkedin.com/in/detnarin-chaiaksorn",
     icon: (
       <svg
         xmlns="http://www.w3.org/2000/svg"

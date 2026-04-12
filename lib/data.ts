@@ -1,74 +1,71 @@
 import type { Experience, PersonalInfo, Project, SkillCategory } from "@/types";
 
 export const personalInfo: PersonalInfo = {
-  name: "Alex Chen",
+  name: "Detnarin Chaiaksorn",
   role: "Full-Stack Developer",
-  bio: "I'm a passionate full-stack developer with 4+ years of experience building scalable web applications. I love creating elegant solutions to complex problems and am always excited to learn new technologies.",
-  email: "alex.chen@example.com",
-  github: "https://github.com/alexchen",
-  linkedin: "https://linkedin.com/in/alexchen",
+  bio: "Computer Science student with an interest in full-stack development. Experienced in building academic and personal projects across frontend and backend, with some hands-on experience in client demos and requirement gathering. Interested in AI, IoT, and emerging technologies.",
+  email: "detnarin.cha@gmail.com",
+  github: "https://github.com/Liondetnarin",
+  linkedin: "https://linkedin.com/in/detnarin-chaiaksorn",
 };
 
 export const projects: Project[] = [
   {
     id: "1",
-    title: "E-Commerce Platform",
+    title: "AI Voice Assistant",
     description:
-      "A full-featured e-commerce platform with product management, cart, payments via Stripe, and an admin dashboard. Built with Next.js and PostgreSQL.",
-    techStack: ["Next.js", "TypeScript", "PostgreSQL", "Stripe", "Tailwind CSS"],
-    githubUrl: "https://github.com/alexchen/ecommerce",
-    demoUrl: "https://shop-demo.vercel.app",
+      "Built an AI voice assistant during internship at FORVIZ. Developed backend features, designed database, and tested voice pipelines using Google ADK and Python. Implemented frontend UI and conducted real-world testing with user feedback.",
+    techStack: ["Python", "Google ADK", "React", "TypeScript"],
+    githubUrl: "https://github.com/Liondetnarin",
     category: "fullstack",
     featured: true,
   },
   {
     id: "2",
-    title: "Real-Time Chat App",
+    title: "WenWorks",
     description:
-      "A real-time messaging application with WebSocket support, rooms, and direct messages. Features end-to-end encryption and media sharing.",
-    techStack: ["React", "Node.js", "Socket.io", "MongoDB", "Redis"],
-    githubUrl: "https://github.com/alexchen/chat-app",
-    demoUrl: "https://chat-demo.vercel.app",
-    category: "fullstack",
+      "Developed a high-performance marketing website with multi-language support and CMS integration using Next.js, Tailwind, and Sanity. Focused on performance and clean UI.",
+    techStack: ["Next.js", "Tailwind CSS", "Sanity", "TypeScript"],
+    githubUrl: "https://github.com/Liondetnarin",
+    demoUrl: "https://www.wenworks.co/th",
+    category: "frontend",
     featured: true,
   },
   {
     id: "3",
-    title: "REST API Service",
+    title: "Coding is Magic",
     description:
-      "A scalable REST API for a social media platform. Includes authentication, rate limiting, caching, and comprehensive documentation.",
-    techStack: ["Node.js", "Express", "PostgreSQL", "Redis", "Docker"],
-    githubUrl: "https://github.com/alexchen/rest-api",
-    category: "backend",
+      "2D pixel art game (Unity, C#) designed to teach Python through puzzle-based gameplay. Awarded 2nd place in university showcase 2026.",
+    techStack: ["Unity", "C#", "2D Game"],
+    githubUrl: "https://github.com/Liondetnarin",
+    category: "frontend",
     featured: true,
   },
   {
     id: "4",
-    title: "DevTrack Dashboard",
+    title: "HomeFlow",
     description:
-      "A developer productivity dashboard with GitHub stats, task tracking, and time management tools. Integrates with multiple third-party APIs.",
-    techStack: ["React", "TypeScript", "Vite", "Recharts", "Tailwind CSS"],
-    githubUrl: "https://github.com/alexchen/devtrack",
-    demoUrl: "https://devtrack.vercel.app",
+      "Mobile-first web app for managing home tasks and resources with a clean and user-friendly interface.",
+    techStack: ["React Native", "JavaScript"],
+    githubUrl: "https://github.com/Liondetnarin",
     category: "frontend",
   },
   {
     id: "5",
-    title: "Portfolio CMS",
+    title: "UniFood",
     description:
-      "A headless CMS backend built for managing portfolio content. Supports markdown, image uploads to S3, and a webhook system.",
-    techStack: ["Node.js", "Fastify", "MongoDB", "AWS S3", "TypeScript"],
-    githubUrl: "https://github.com/alexchen/portfolio-cms",
-    category: "backend",
+      "Full-stack restaurant review platform with filtering, ranking, and user ratings. Built using React, Spring Boot, and MongoDB.",
+    techStack: ["React", "Spring Boot", "MongoDB", "Java"],
+    githubUrl: "https://github.com/Liondetnarin",
+    category: "fullstack",
   },
   {
     id: "6",
-    title: "UI Component Library",
+    title: "UTCC PHOBIA",
     description:
-      "A reusable React component library with 30+ accessible components. Includes Storybook documentation and automated visual regression tests.",
-    techStack: ["React", "TypeScript", "Storybook", "Vitest", "CSS Modules"],
-    githubUrl: "https://github.com/alexchen/ui-lib",
-    demoUrl: "https://ui-lib.vercel.app",
+      "3D horror game built with Unreal Engine 5, featuring custom environments, gameplay mechanics, and interactive storytelling.",
+    techStack: ["Unreal Engine 5", "Blueprints", "3D"],
+    githubUrl: "https://github.com/Liondetnarin",
     category: "frontend",
   },
 ];
@@ -76,50 +73,35 @@ export const projects: Project[] = [
 export const skillCategories: SkillCategory[] = [
   {
     name: "Frontend",
-    skills: [
-      "React",
-      "Next.js",
-      "TypeScript",
-      "Tailwind CSS",
-      "HTML5",
-      "CSS3",
-      "Vite",
-    ],
+    skills: ["HTML", "CSS", "JavaScript", "React", "Next.js", "Tailwind CSS"],
   },
   {
     name: "Backend",
-    skills: ["Node.js", "Express", "Fastify", "REST APIs", "GraphQL", "Docker"],
+    skills: ["Node.js", "Python", "Java", "Spring Boot", "C#"],
   },
   {
     name: "Database",
-    skills: ["PostgreSQL", "MongoDB", "Redis", "Prisma", "Drizzle ORM"],
+    skills: ["MySQL", "MongoDB"],
   },
   {
     name: "Tools",
-    skills: ["Git", "GitHub Actions", "Vercel", "AWS", "Linux", "Figma"],
+    skills: [
+      "Git",
+      "React Native",
+      "Unity",
+      "Unreal Engine 5",
+      "Google ADK",
+      "AI Prompting",
+    ],
   },
 ];
 
 export const experiences: Experience[] = [
   {
-    company: "TechCorp Solutions",
-    role: "Senior Full-Stack Developer",
-    period: "2023 – Present",
+    company: "FORVIZ Company Limited",
+    role: "Software Developer Intern",
+    period: "January 2026 – May 2026",
     description:
-      "Led development of a multi-tenant SaaS platform serving 50k+ users. Architected microservices migration reducing latency by 40%.",
-  },
-  {
-    company: "WebAgency Pro",
-    role: "Full-Stack Developer",
-    period: "2021 – 2023",
-    description:
-      "Built and maintained 15+ client websites and web applications. Introduced TypeScript and improved code review processes.",
-  },
-  {
-    company: "StartupXYZ",
-    role: "Frontend Developer",
-    period: "2020 – 2021",
-    description:
-      "Developed responsive React applications and contributed to design system creation. Improved Lighthouse scores from 60 to 95+.",
+      "Worked on an AI Voice Assistant system across frontend and backend. Designed database, implemented features, and tested voice systems using Google ADK. Built UI from prototypes and participated in real-world testing to improve system performance.",
   },
 ];

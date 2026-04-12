@@ -1,5 +1,6 @@
 import Link from "next/link";
 import MobileMenu from "./MobileMenu";
+import { personalInfo } from "@/lib/data";
 
 const navLinks = [
   { href: "/", label: "Home" },
@@ -18,7 +19,7 @@ export default function Navbar() {
           href="/"
           className="text-lg font-semibold tracking-tight text-[var(--color-text)] transition-opacity hover:opacity-70"
         >
-          Alex<span className="text-[var(--color-accent)]">.</span>
+          {personalInfo.name.split(" ")[0]}<span className="text-[var(--color-accent)]">.</span>
         </Link>
 
         {/* Desktop Nav */}
