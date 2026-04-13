@@ -15,7 +15,9 @@ export const metadata: Metadata = {
   },
 };
 
-const featuredProjects = projects.filter((p) => p.featured);
+// Main target for featured layout
+const featuredProject = projects.find((p) => p.title === "AI Voice Assistant");
+const otherProjects = projects.filter((p) => p.title !== "AI Voice Assistant");
 
 const socialLinks = [
   {
@@ -74,6 +76,19 @@ export default function HomePage() {
             {personalInfo.bio}
           </p>
 
+          {/* Tech Tags */}
+          <div className="mt-8 flex flex-wrap gap-3 text-sm font-medium text-[var(--color-muted)]">
+            <span>Next.js</span>
+            <span className="text-[var(--color-border)]">•</span>
+            <span>React</span>
+            <span className="text-[var(--color-border)]">•</span>
+            <span>Spring Boot</span>
+            <span className="text-[var(--color-border)]">•</span>
+            <span>MongoDB</span>
+            <span className="text-[var(--color-border)]">•</span>
+            <span>AI</span>
+          </div>
+
           {/* CTA Buttons */}
           <div className="mt-10 flex flex-wrap gap-4">
             <Link
@@ -124,74 +139,108 @@ export default function HomePage() {
         </div>
       </section>
 
-      {/* ── About & Experience ── */}
-      <section id="about" className="border-b border-[var(--color-border)] bg-[var(--color-cream)]">
-        <div className="mx-auto max-w-5xl px-6 py-24">
-          <div className="grid gap-12 lg:grid-cols-2">
-            <div>
-              <h2 className="mb-6 text-3xl font-bold text-[var(--color-text)]">About Me</h2>
-              <p className="text-base leading-relaxed text-[var(--color-muted)]">
-                I am deeply passionate about building scalable, maintainable, and user-friendly software. 
-                Whether creating seamless web applications or optimizing back-end systems, I focus on delivering clean code and solving real-world problems. 
-                Constantly learning and adapting to new technologies.
-              </p>
-            </div>
-            
-            {/* Experience Timeline */}
-            <div>
-              <h3 className="mb-6 text-xl font-bold text-[var(--color-text)]">Experience</h3>
-              <ol className="relative space-y-8 border-l border-[var(--color-border)] pl-6">
-                {experiences.map((exp, i) => (
-                  <li key={i} className="relative">
-                    {/* Timeline dot */}
-                    <span className="absolute -left-[25px] flex h-4 w-4 items-center justify-center rounded-full border-2 border-[var(--color-accent)] bg-[var(--color-cream)]" />
-
-                    <article>
-                      <div className="flex flex-wrap items-baseline gap-2">
-                        <h4 className="text-base font-semibold text-[var(--color-text)]">
-                          {exp.role}
-                        </h4>
-                        <span className="text-sm text-[var(--color-accent)]">
-                          @ {exp.company}
-                        </span>
-                      </div>
-                      <time className="mt-0.5 block text-xs font-semibold uppercase tracking-wider text-[var(--color-muted)]">
-                        {exp.period}
-                      </time>
-                      <p className="mt-2 text-sm leading-relaxed text-[var(--color-muted)]">
-                        {exp.description}
-                      </p>
-                    </article>
-                  </li>
-                ))}
-              </ol>
-            </div>
+      {/* ── Featured Project ── */}
+      {featuredProject && (
+        <section id="projects" className="border-b border-[var(--color-border)] bg-[var(--color-cream)]">
+          <div className="mx-auto max-w-5xl px-6 py-24">
+            <h2 className="mb-10 text-3xl font-bold tracking-tight text-[var(--color-text)]">
+              Featured Work
+            </h2>
+            <article className="overflow-hidden rounded-2xl border border-[var(--color-border)] bg-[var(--color-surface)] shadow-md transition-shadow hover:shadow-lg">
+              <div className="flex flex-col md:grid md:grid-cols-2">
+                {/* Image Placeholder */}
+                <div className="relative aspect-video md:aspect-[4/3] w-full bg-[#f4f2ec] border-b md:border-b-0 md:border-r border-[var(--color-border)]">
+                  {featuredProject.imageUrl ? (
+                    /* eslint-disable-next-line @next/next/no-img-element */
+                    <img
+                      src={featuredProject.imageUrl}
+                      alt={`${featuredProject.title} preview`}
+                      className="h-full w-full object-cover"
+                    />
+                  ) : (
+                    <div className="flex h-full w-full items-center justify-center">
+                      <span className="text-sm font-medium text-[var(--color-muted)]">
+                        No Preview Available
+                      </span>
+                    </div>
+                  )}
+                </div>
+                
+                {/* Content */}
+                <div className="flex flex-col justify-center p-8 lg:p-12">
+                  <div className="mb-4 flex flex-wrap gap-2">
+                    <span className="rounded-full bg-[var(--color-accent)]/10 px-3 py-1 text-xs font-semibold text-[var(--color-accent)]">
+                      Featured
+                    </span>
+                    <span className="rounded-full bg-[var(--color-border)] px-3 py-1 text-xs font-medium text-[var(--color-text)]">
+                      Internship Project
+                    </span>
+                  </div>
+                  <h3 className="mb-3 text-2xl font-bold text-[var(--color-text)]">
+                    {featuredProject.title}
+                  </h3>
+                  <p className="mb-6 text-base leading-relaxed text-[var(--color-muted)]">
+                    {featuredProject.description}
+                  </p>
+                  
+                  <div className="mb-8 flex flex-wrap gap-2">
+                    {featuredProject.techStack.map((tech) => (
+                      <span
+                        key={tech}
+                        className="rounded-md bg-[var(--color-cream)] border border-[var(--color-border)] px-2.5 py-1 text-xs font-medium text-[var(--color-muted)]"
+                      >
+                        {tech}
+                      </span>
+                    ))}
+                  </div>
+                  
+                  {/* Links */}
+                  <div className="flex items-center gap-6 mt-auto">
+                    <a
+                      href={featuredProject.githubUrl}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="flex items-center gap-1.5 text-sm font-medium text-[var(--color-muted)] transition-colors hover:text-[var(--color-text)]"
+                    >
+                      <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 0C5.374 0 0 5.373 0 12c0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23A11.509 11.509 0 0 1 12 5.803c1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576C20.566 21.797 24 17.3 24 12c0-6.627-5.373-12-12-12z" /></svg>
+                      GitHub Repo
+                    </a>
+                    {featuredProject.demoUrl && (
+                      <a
+                        href={featuredProject.demoUrl}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="flex items-center gap-1.5 text-sm font-medium text-[var(--color-accent)] transition-opacity hover:opacity-70"
+                      >
+                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6" /><polyline points="15 3 21 3 21 9" /><line x1="10" y1="14" x2="21" y2="3" /></svg>
+                        Live Demo
+                      </a>
+                    )}
+                  </div>
+                </div>
+              </div>
+            </article>
           </div>
-        </div>
-      </section>
+        </section>
+      )}
 
-      {/* ── Featured Projects ── */}
+      {/* ── Other Projects ── */}
       <section className="border-b border-[var(--color-border)] bg-[var(--color-surface)]">
         <div className="mx-auto max-w-5xl px-6 py-24">
           <div className="mb-10 flex items-end justify-between">
-            <div>
-              <h2 className="text-3xl font-bold text-[var(--color-text)]">
-                Featured Projects
-              </h2>
-              <p className="mt-1 text-sm text-[var(--color-muted)]">
-                A selection of my recent work
-              </p>
-            </div>
+            <h2 className="text-2xl font-bold text-[var(--color-text)]">
+              Other Projects
+            </h2>
             <Link
               href="/projects"
               className="text-sm font-medium text-[var(--color-accent)] transition-opacity hover:opacity-70"
             >
-              View all →
+              View all grid →
             </Link>
           </div>
 
-          <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
-            {featuredProjects.map((project) => (
+          <div className="grid gap-6 md:grid-cols-2">
+            {otherProjects.map((project) => (
               <ProjectCard key={project.id} project={project} />
             ))}
           </div>
@@ -250,8 +299,54 @@ export default function HomePage() {
         </div>
       </section>
 
+      {/* ── About & Experience ── */}
+      <section id="about" className="border-b border-[var(--color-border)] bg-[var(--color-surface)]">
+        <div className="mx-auto max-w-5xl px-6 py-24">
+          <div className="grid gap-12 lg:grid-cols-2">
+            <div>
+              <h2 className="mb-6 text-3xl font-bold text-[var(--color-text)]">About Me</h2>
+              <p className="text-base leading-relaxed text-[var(--color-muted)]">
+                I am deeply passionate about building scalable, maintainable, and user-friendly software. 
+                Whether creating seamless web applications or optimizing back-end systems, I focus on delivering clean code and solving real-world problems. 
+                Constantly learning and adapting to new technologies.
+              </p>
+            </div>
+            
+            {/* Experience Timeline */}
+            <div>
+              <h3 className="mb-6 text-xl font-bold text-[var(--color-text)]">Experience</h3>
+              <ol className="relative space-y-8 border-l border-[var(--color-border)] pl-6">
+                {experiences.map((exp, i) => (
+                  <li key={i} className="relative">
+                    {/* Timeline dot */}
+                    <span className="absolute -left-[25px] flex h-4 w-4 items-center justify-center rounded-full border-2 border-[var(--color-accent)] bg-[var(--color-surface)]" />
+
+                    <article>
+                      <div className="flex flex-wrap items-baseline gap-2">
+                        <h4 className="text-base font-semibold text-[var(--color-text)]">
+                          {exp.role}
+                        </h4>
+                        <span className="text-sm text-[var(--color-accent)]">
+                          @ {exp.company}
+                        </span>
+                      </div>
+                      <time className="mt-0.5 block text-xs font-semibold uppercase tracking-wider text-[var(--color-muted)]">
+                        {exp.period}
+                      </time>
+                      <p className="mt-2 text-sm leading-relaxed text-[var(--color-muted)]">
+                        {exp.description}
+                      </p>
+                    </article>
+                  </li>
+                ))}
+              </ol>
+            </div>
+          </div>
+        </div>
+      </section>
+
       {/* ── Contact ── */}
-      <section id="contact" className="bg-[var(--color-surface)]">
+      <section id="contact" className="bg-[var(--color-cream)]">
         <div className="mx-auto max-w-5xl px-6 py-24">
           <header className="mb-12">
             <h2 className="text-3xl font-bold tracking-tight text-[var(--color-text)]">
@@ -285,7 +380,7 @@ export default function HomePage() {
                           ? undefined
                           : "noopener noreferrer"
                       }
-                      className="flex items-center gap-4 rounded-xl border border-[var(--color-border)] bg-[var(--color-cream)] p-4 shadow-sm transition-shadow hover:shadow-md"
+                      className="flex items-center gap-4 rounded-xl border border-[var(--color-border)] bg-[var(--color-surface)] p-4 shadow-sm transition-shadow hover:shadow-md"
                       aria-label={link.label}
                     >
                       <span className="flex h-10 w-10 shrink-0 items-center justify-center rounded-lg bg-[var(--color-accent-light)] text-[var(--color-accent)]">
