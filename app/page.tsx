@@ -111,7 +111,7 @@ export default function HomePage() {
             {[
               { label: "Internship", value: "1" },
               { label: "Projects", value: "6+" },
-              { label: "Award Won", value: "1" },
+              { label: "Award", value: "1" },
             ].map((stat) => (
                <div key={stat.label}>
                 <p className="text-2xl font-bold text-[var(--color-text)]">
