@@ -6,9 +6,28 @@ interface ProjectCardProps {
 
 export default function ProjectCard({ project }: ProjectCardProps) {
   return (
-    <article className="group flex flex-col rounded-xl border border-[var(--color-border)] bg-[var(--color-surface)] p-6 shadow-sm transition-shadow hover:shadow-md">
-      {/* Header */}
-      <div className="mb-3 flex items-start justify-between gap-3">
+    <article className="group flex flex-col overflow-hidden rounded-xl border border-[var(--color-border)] bg-[var(--color-surface)] shadow-sm transition-all hover:shadow-md hover:-translate-y-1">
+      {/* Image Placeholder */}
+      <div className="relative aspect-video w-full bg-[var(--color-cream)] border-b border-[var(--color-border)] overflow-hidden">
+        {project.imageUrl ? (
+          /* eslint-disable-next-line @next/next/no-img-element */
+          <img
+            src={project.imageUrl}
+            alt={`${project.title} preview`}
+            className="h-full w-full object-cover transition-transform duration-500 group-hover:scale-105"
+          />
+        ) : (
+          <div className="flex h-full w-full items-center justify-center bg-gradient-to-br from-[#f0eee9] to-[#e6e3dd]">
+            <span className="text-sm font-medium text-[var(--color-muted)]">
+              Placeholder Image
+            </span>
+          </div>
+        )}
+      </div>
+
+      <div className="flex flex-1 flex-col p-6">
+        {/* Header */}
+        <div className="mb-3 flex items-start justify-between gap-3">
         <h3 className="text-base font-semibold text-[var(--color-text)] group-hover:text-[var(--color-accent)] transition-colors">
           {project.title}
         </h3>
@@ -82,6 +101,7 @@ export default function ProjectCard({ project }: ProjectCardProps) {
             Live Demo
           </a>
         )}
+      </div>
       </div>
     </article>
   );

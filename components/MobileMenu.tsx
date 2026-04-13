@@ -46,13 +46,15 @@ export default function MobileMenu({ links }: { links: NavLink[] }) {
                 {link.label}
               </Link>
             ))}
-            <Link
-              href="/contact"
+            <a
+              href="#"
+              target="_blank"
+              rel="noopener noreferrer"
               onClick={() => setOpen(false)}
               className="mt-2 rounded-lg bg-[var(--color-accent)] px-4 py-2.5 text-center text-sm font-medium text-white transition-opacity hover:opacity-80"
             >
-              Hire Me
-            </Link>
+              Resume PDF
+            </a>
           </nav>
         </div>
       )}

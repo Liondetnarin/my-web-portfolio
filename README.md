@@ -1,5 +1,52 @@
 This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
 
+# Dev Portfolio — Detnarin Chaiaksorn
+
+Personal web portfolio built to showcase my projects, skills, and experience as a Full-Stack Developer.
+
+---
+
+## 🔗 Live Demo
+
+https://my-web-portfolio-fawn.vercel.app/
+
+---
+
+## 📌 Overview
+
+This portfolio presents my work in software development, including full-stack applications, frontend projects, and game development.
+
+The goal is to provide a clean, fast, and easy-to-navigate experience for recruiters and developers.
+
+---
+
+## 🛠 Tech Stack
+
+- Next.js (App Router)
+- TypeScript
+- Tailwind CSS
+- Vercel (Deployment)
+
+---
+
+## ✨ Features
+
+- Responsive design (mobile-first)
+- Project showcase with filtering
+- Clean and minimal UI
+- Optimized performance (Next.js)
+- SEO-friendly structure
+
+---
+
+## 📂 Project Structure
+
+/app
+/components
+/lib
+/types
+/public
+
 ## Getting Started
 
 First, run the development server:
