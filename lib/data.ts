@@ -37,7 +37,7 @@ export const projects: Project[] = [
     description:
       "2D pixel art game (Unity, C#) designed to teach Python through puzzle-based gameplay. Awarded 2nd place in university showcase 2026.",
     techStack: ["Unity", "C#", "2D Game"],
-    githubUrl: "https://github.com/Liondetnarin",
+    githubUrl: "https://github.com/Tanakorn-C/Coding-is-Magic-RPG",
     category: "frontend",
     featured: true,
   },

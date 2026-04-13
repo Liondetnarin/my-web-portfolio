@@ -4,10 +4,10 @@ import { personalInfo } from "@/lib/data";
 
 const navLinks = [
   { href: "/", label: "Home" },
-  { href: "/about", label: "About" },
+  { href: "/#about", label: "About" },
   { href: "/projects", label: "Projects" },
-  { href: "/skills", label: "Skills" },
-  { href: "/contact", label: "Contact" },
+  { href: "/#skills", label: "Skills" },
+  { href: "/#contact", label: "Contact" },
 ];
 
 export default function Navbar() {
@@ -37,12 +37,14 @@ export default function Navbar() {
 
         {/* CTA + Mobile */}
         <div className="flex items-center gap-3">
-          <Link
-            href="/contact"
+          <a
+            href="#"
+            target="_blank"
+            rel="noopener noreferrer"
             className="hidden rounded-lg bg-[var(--color-accent)] px-4 py-2 text-sm font-medium text-white transition-opacity hover:opacity-80 md:block"
           >
-            Hire Me
-          </Link>
+            Resume PDF
+          </a>
           <MobileMenu links={navLinks} />
         </div>
       </div>

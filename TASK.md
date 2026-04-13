@@ -118,3 +118,13 @@
 - [x] `components/Navbar.tsx` — logo ดึงชื่อจาก `personalInfo` แทน hardcode
 - [x] `components/Footer.tsx` — brand name + role ดึงจาก `personalInfo` แทน hardcode
 
+---
+
+### Step 12 — Single-Page Portfolio & UI Enhancement
+
+- [x] ลบโฟลเดอร์ `app/about`, `app/skills`, `app/contact` เปลี่ยนไปเป็นหน้าเดียวจบ
+- [x] ย้ายเนื้อหาของ `About`, `Skills`, `Contact` มารวมกันใน `app/page.tsx` โดยแบ่งเป็น `<section id="...">` สลับสีพื้นหลังสวยงาม
+- [x] อัปเดต `Navbar` และ `MobileMenu` ให้ใช้ Anchor Link `/#about`, `/#skills`, `/#contact` เพื่อเลื่อนหน้าอย่างนุ่มนวล
+- [x] เปลี่ยนปุ่ม "Hire Me" เป็น "Resume PDF" พร้อมลิงก์ไปยังไฟล์ PDF (ใช้ Placeholder `#` ไว้ก่อน)
+- [x] เพิ่ม `imageUrl` field ให้กับ `Project` type ใน `types/index.ts`
+- [x] ปรับแก้ `ProjectCard` ให้รองรับรูปภาพตัวอย่าง ถ้าไม่มีจะแสดงกล่อง Placeholder สีสวยงามแทน
