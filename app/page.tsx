@@ -1,6 +1,5 @@
 import type { Metadata } from "next";
 import Link from "next/link";
-import ProjectCard from "@/components/ProjectCard";
 import ProjectSlider from "@/components/ProjectSlider";
 import { personalInfo, projects, experiences, skillCategories } from "@/lib/data";
 
@@ -18,6 +17,14 @@ export const metadata: Metadata = {
 // Main target for featured layout
 const featuredProject = projects.find((p) => p.title === "AI Voice Assistant");
 const otherProjects = projects.filter((p) => p.title !== "AI Voice Assistant");
+
+const heroTechTags = [
+  { name: "Next.js", icon: "/images/icon-svg/nextjs-fill-svgrepo-com.svg" },
+  { name: "React", icon: "/images/icon-svg/react-svgrepo-com.svg" },
+  { name: "TypeScript", icon: "/images/icon-svg/typescript-svgrepo-com.svg" },
+  { name: "Python", icon: "/images/icon-svg/python-svgrepo-com.svg" },
+  { name: "Node.js", icon: "/images/icon-svg/node-svgrepo-com.svg" },
+];
 
 const socialLinks = [
   {
@@ -80,19 +87,21 @@ export default function HomePage() {
               </p>
 
               {/* Tech Tags with Icons */}
-              <div className="mt-8 flex flex-wrap items-center gap-4">
-                {[
-                  { name: "Next.js", icon: "▲" },
-                  { name: "React", icon: "⚛" },
-                  { name: "TypeScript", icon: "TS" },
-                  { name: "Python", icon: "🐍" },
-                  { name: "Node.js", icon: "🟢" },
-                ].map((tech) => (
+              <div className="mt-8 flex flex-wrap items-center gap-3">
+                {heroTechTags.map((tech) => (
                   <span
                     key={tech.name}
-                    className="inline-flex items-center gap-1.5 rounded-full border border-[var(--color-border)] bg-[var(--color-cream)] px-3 py-1.5 text-xs font-medium text-[var(--color-muted)]"
+                    className="inline-flex items-center gap-2 rounded-lg border border-[var(--color-border)] bg-[var(--color-surface)] px-3 py-2 text-sm font-medium text-[var(--color-text)] shadow-sm"
                   >
-                    <span className="text-[var(--color-accent)]">{tech.icon}</span>
+                    <span className="flex h-6 w-6 items-center justify-center rounded-md bg-[var(--color-cream)] p-1">
+                      {/* eslint-disable-next-line @next/next/no-img-element */}
+                      <img
+                        src={tech.icon}
+                        alt=""
+                        className="h-full w-full object-contain"
+                        aria-hidden="true"
+                      />
+                    </span>
                     {tech.name}
                   </span>
                 ))}
