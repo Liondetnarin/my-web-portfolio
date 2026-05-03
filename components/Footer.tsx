@@ -5,18 +5,18 @@ export default function Footer() {
   const year = new Date().getFullYear();
 
   return (
-    <footer className="border-t border-[var(--color-border)] bg-[var(--color-surface)]">
+    <footer className="bg-[#0f172a]">
       <div className="mx-auto max-w-5xl px-6 py-10">
         <div className="flex flex-col items-center justify-between gap-6 sm:flex-row">
           {/* Brand */}
           <div>
             <Link
               href="/"
-              className="text-base font-semibold tracking-tight text-[var(--color-text)] hover:opacity-70 transition-opacity"
+              className="text-base font-semibold tracking-tight text-white hover:opacity-70 transition-opacity"
             >
               {personalInfo.name.split(" ")[0]}<span className="text-[var(--color-accent)]">.</span>
             </Link>
-            <p className="mt-1 text-sm text-[var(--color-muted)]">
+            <p className="mt-1 text-sm text-slate-400">
               {personalInfo.role}
             </p>
           </div>
@@ -25,7 +25,7 @@ export default function Footer() {
           <nav aria-label="Footer navigation" className="flex items-center gap-6">
             <a
               href={`mailto:${personalInfo.email}`}
-              className="text-sm text-[var(--color-muted)] transition-colors hover:text-[var(--color-text)]"
+              className="text-sm text-slate-400 transition-colors hover:text-white"
             >
               Email
             </a>
@@ -33,7 +33,7 @@ export default function Footer() {
               href={personalInfo.github}
               target="_blank"
               rel="noopener noreferrer"
-              className="text-sm text-[var(--color-muted)] transition-colors hover:text-[var(--color-text)]"
+              className="text-sm text-slate-400 transition-colors hover:text-white"
             >
               GitHub
             </a>
@@ -41,14 +41,14 @@ export default function Footer() {
               href={personalInfo.linkedin}
               target="_blank"
               rel="noopener noreferrer"
-              className="text-sm text-[var(--color-muted)] transition-colors hover:text-[var(--color-text)]"
+              className="text-sm text-slate-400 transition-colors hover:text-white"
             >
               LinkedIn
             </a>
           </nav>
         </div>
 
-        <div className="mt-8 border-t border-[var(--color-border)] pt-6 text-center text-xs text-[var(--color-muted)]">
+        <div className="mt-8 border-t border-slate-800 pt-6 text-center text-xs text-slate-500">
           © {year} {personalInfo.name}. Built with Next.js & Tailwind CSS.
         </div>
       </div>

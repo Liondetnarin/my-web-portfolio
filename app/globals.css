@@ -2,13 +2,13 @@
 
 /* ─── Design Tokens ─── */
 :root {
-  --color-cream: #faf9f6;
+  --color-cream: #f1f5f9;
   --color-surface: #ffffff;
-  --color-border: #e8e5de;
-  --color-text: #1a1a18;
-  --color-muted: #72716c;
-  --color-accent: #2d6a4f;
-  --color-accent-light: #d8f3e4;
+  --color-border: #e2e8f0;
+  --color-text: #0f172a;
+  --color-muted: #64748b;
+  --color-accent: #16a34a;
+  --color-accent-light: #dcfce7;
   --font-sans: "Inter", system-ui, -apple-system, sans-serif;
 }
 
@@ -62,7 +62,7 @@ h4 {
   width: 6px;
 }
 ::-webkit-scrollbar-track {
-  background: var(--color-cream);
+  background: var(--color-surface);
 }
 ::-webkit-scrollbar-thumb {
   background: var(--color-border);

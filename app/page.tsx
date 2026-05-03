@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
 import Link from "next/link";
 import ProjectCard from "@/components/ProjectCard";
-import ContactForm from "@/components/ContactForm";
+import ProjectSlider from "@/components/ProjectSlider";
 import { personalInfo, projects, experiences, skillCategories } from "@/lib/data";
 
 export const metadata: Metadata = {
@@ -60,34 +60,43 @@ export default function HomePage() {
       {/* ── Hero ── */}
       <section className="border-b border-[var(--color-border)] bg-[var(--color-surface)]">
         <div className="mx-auto max-w-5xl px-6 py-24 sm:py-32">
-          <p className="mb-4 text-sm font-medium tracking-widest text-[var(--color-accent)] uppercase">
-            CS Student @ UTCC
-          </p>
-          <h1 className="text-4xl font-bold tracking-tight text-[var(--color-text)] sm:text-5xl lg:text-6xl">
-            Hi, I&apos;m{" "}
-            <span className="text-[var(--color-accent)]">
-              {personalInfo.name}
-            </span>
-          </h1>
-          <p className="mt-3 text-xl font-medium text-[var(--color-muted)] sm:text-2xl">
-            {personalInfo.role}
-          </p>
-          <p className="mt-6 max-w-2xl text-base leading-relaxed text-[var(--color-muted)]">
-            {personalInfo.bio}
-          </p>
+          <div className="grid gap-12 lg:grid-cols-[1fr_auto] lg:items-center">
+            {/* Left: Text Content */}
+            <div>
+              <p className="mb-4 text-sm font-medium tracking-widest text-[var(--color-accent)] uppercase">
+                CS Student @ UTCC
+              </p>
+              <h1 className="text-4xl font-bold tracking-tight text-[var(--color-text)] sm:text-5xl lg:text-6xl">
+                Hi, I&apos;m{" "}
+                <span className="text-[var(--color-accent)]">
+                  {personalInfo.name}
+                </span>
+              </h1>
+              <p className="mt-3 text-xl font-medium text-[var(--color-muted)] sm:text-2xl">
+                {personalInfo.role}
+              </p>
+              <p className="mt-6 max-w-2xl text-base leading-relaxed text-[var(--color-muted)]">
+                {personalInfo.bio}
+              </p>
 
-          {/* Tech Tags */}
-          <div className="mt-8 flex flex-wrap gap-3 text-sm font-medium text-[var(--color-muted)]">
-            <span>Next.js</span>
-            <span className="text-[var(--color-border)]">•</span>
-            <span>React</span>
-            <span className="text-[var(--color-border)]">•</span>
-            <span>Spring Boot</span>
-            <span className="text-[var(--color-border)]">•</span>
-            <span>MongoDB</span>
-            <span className="text-[var(--color-border)]">•</span>
-            <span>AI</span>
-          </div>
+              {/* Tech Tags with Icons */}
+              <div className="mt-8 flex flex-wrap items-center gap-4">
+                {[
+                  { name: "Next.js", icon: "▲" },
+                  { name: "React", icon: "⚛" },
+                  { name: "TypeScript", icon: "TS" },
+                  { name: "Python", icon: "🐍" },
+                  { name: "Node.js", icon: "🟢" },
+                ].map((tech) => (
+                  <span
+                    key={tech.name}
+                    className="inline-flex items-center gap-1.5 rounded-full border border-[var(--color-border)] bg-[var(--color-cream)] px-3 py-1.5 text-xs font-medium text-[var(--color-muted)]"
+                  >
+                    <span className="text-[var(--color-accent)]">{tech.icon}</span>
+                    {tech.name}
+                  </span>
+                ))}
+              </div>
 
           {/* CTA Buttons */}
           <div className="mt-10 flex flex-wrap gap-4">
@@ -121,20 +130,36 @@ export default function HomePage() {
             </a>
           </div>
 
-          {/* Quick stats */}
-          <div className="mt-14 flex flex-wrap gap-8">
-            {[
-              { label: "Internship", value: "1" },
-              { label: "Projects", value: "6+" },
-              { label: "Award", value: "1" },
-            ].map((stat) => (
-               <div key={stat.label}>
-                <p className="text-2xl font-bold text-[var(--color-text)]">
-                  {stat.value}
-                </p>
-                <p className="text-sm text-[var(--color-muted)]">{stat.label}</p>
+              {/* Quick stats */}
+              <div className="mt-14 flex flex-wrap gap-8">
+                {[
+                  { label: "Internship", value: "1" },
+                  { label: "Projects", value: "6+" },
+                  { label: "Award", value: "1" },
+                ].map((stat) => (
+                   <div key={stat.label}>
+                    <p className="text-2xl font-bold text-[var(--color-text)]">
+                      {stat.value}
+                    </p>
+                    <p className="text-sm text-[var(--color-muted)]">{stat.label}</p>
+                  </div>
+                ))}
               </div>
-            ))}
+            </div>
+
+            {/* Right: Profile Image Placeholder */}
+            <div className="relative mx-auto lg:mx-0">
+              <div className="relative h-64 w-64 sm:h-80 sm:w-80 overflow-hidden rounded-full border-4 border-[var(--color-border)] shadow-xl">
+                {/* eslint-disable-next-line @next/next/no-img-element */}
+                <img
+                  src="/images/img-profile.png"
+                  alt={`${personalInfo.name} profile photo`}
+                  className="h-full w-full object-cover object-center"
+                />
+              </div>
+              {/* Decorative ring */}
+              <div className="absolute -inset-2 -z-10 rounded-full border-2 border-[var(--color-accent)]/20" />
+            </div>
           </div>
         </div>
       </section>
@@ -235,15 +260,12 @@ export default function HomePage() {
               href="/projects"
               className="text-sm font-medium text-[var(--color-accent)] transition-opacity hover:opacity-70"
             >
-              View all grid →
+              View all →
             </Link>
           </div>
 
-          <div className="grid gap-6 md:grid-cols-2">
-            {otherProjects.map((project) => (
-              <ProjectCard key={project.id} project={project} />
-            ))}
-          </div>
+          {/* Slider showing 2 projects at a time */}
+          <ProjectSlider projects={otherProjects} visibleCount={2} />
         </div>
       </section>
 
@@ -259,42 +281,59 @@ export default function HomePage() {
             </p>
           </div>
 
-          <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-4">
-            {skillCategories.map((category) => (
-              <div
-                key={category.name}
-                className="rounded-xl border border-[var(--color-border)] bg-[var(--color-surface)] p-6 shadow-sm"
-              >
-                <div className="mb-4 inline-flex h-10 w-10 items-center justify-center rounded-lg bg-[var(--color-cream)] text-[var(--color-accent)]">
-                  {/* Standard generic icon depending on string matches */}
-                  {category.name === "Frontend" && (
-                    <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><polygon points="12 2 2 22 22 22"></polygon></svg>
-                  )}
-                  {category.name === "Backend" && (
-                    <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><ellipse cx="12" cy="5" rx="9" ry="3"></ellipse><path d="M21 12c0 1.66-4 3-9 3s-9-1.34-9-3"></path><path d="M3 5v14c0 1.66 4 3 9 3s9-1.34 9-3V5"></path></svg>
-                  )}
-                  {category.name === "Database" && (
-                    <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M12 3a9 9 0 0 0 9 9 9 9 0 0 0-9 9 9 9 0 0 0-9-9 9 9 0 0 0 9-9Z"></path></svg>
-                  )}
-                  {category.name === "Tools" && (
-                    <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M14.7 6.3a1 1 0 0 0 0 1.4l1.6 1.6a1 1 0 0 0 1.4 0l3.77-3.77a6 6 0 0 1-7.94 7.94l-6.91 6.91a2.12 2.12 0 0 1-3-3l6.91-6.91a6 6 0 0 1 7.94-7.94l-3.76 3.76z"></path></svg>
-                  )}
+          <div className="grid gap-8 sm:grid-cols-2">
+            {skillCategories.map((category) => {
+              const iconPathMap: Record<string, string> = {
+                "HTML":           "/images/icon-svg/html-5-svgrepo-com.svg",
+                "CSS":            "/images/icon-svg/css-3-svgrepo-com.svg",
+                "JavaScript":     "/images/icon-svg/javascript-svgrepo-com.svg",
+                "TypeScript":     "/images/icon-svg/typescript-svgrepo-com.svg",
+                "React":          "/images/icon-svg/react-svgrepo-com.svg",
+                "Next.js":        "/images/icon-svg/nextjs-fill-svgrepo-com.svg",
+                "Tailwind CSS":   "/images/icon-svg/tailwind-svgrepo-com.svg",
+                "Node.js":        "/images/icon-svg/node-svgrepo-com.svg",
+                "Python":         "/images/icon-svg/python-svgrepo-com.svg",
+                "Java":           "/images/icon-svg/java-svgrepo-com.svg",
+                "MongoDB":        "/images/icon-svg/mongodb-svgrepo-com.svg",
+                "Git":            "/images/icon-svg/git-svgrepo-com.svg",
+                "C#":             "/images/icon-svg/csharp-svgrepo-com.svg",
+                "MySQL":          "/images/icon-svg/mysql-logo-svgrepo-com.svg",
+                "Supabase":       "/images/icon-svg/supabase-icon.svg",
+                "Figma":          "/images/icon-svg/figma-svgrepo-com.svg",
+              };
+              return (
+                <div
+                  key={category.name}
+                  className="rounded-xl border border-[var(--color-border)] bg-[var(--color-surface)] p-6 shadow-sm"
+                >
+                  <h3 className="mb-5 text-sm font-semibold uppercase tracking-wider text-[var(--color-muted)]">
+                    {category.name}
+                  </h3>
+                  <div className="grid grid-cols-4 gap-4">
+                    {category.skills.map((skill) => {
+                      const src = iconPathMap[skill] ?? `/images/skills/${skill.toLowerCase().replace(/[^a-z0-9]/g, "-")}.svg`;
+                      return (
+                        <div key={skill} className="flex flex-col items-center gap-2">
+                          <div className="flex h-12 w-12 items-center justify-center overflow-hidden rounded-xl border border-[var(--color-border)] bg-[var(--color-cream)] p-1.5">
+                            {/* eslint-disable-next-line @next/next/no-img-element */}
+                            <img
+                              src={src}
+                              alt={skill}
+                              width={36}
+                              height={36}
+                              className="h-full w-full object-contain"
+                            />
+                          </div>
+                          <span className="text-center text-[10px] font-medium leading-tight text-[var(--color-muted)]">
+                            {skill}
+                          </span>
+                        </div>
+                      );
+                    })}
+                  </div>
                 </div>
-                <h3 className="mb-4 text-base font-semibold text-[var(--color-text)]">
-                  {category.name}
-                </h3>
-                <ul className="space-y-2">
-                  {category.skills.map((skill) => (
-                    <li
-                      key={skill}
-                      className="text-sm font-medium text-[var(--color-muted)]"
-                    >
-                      {skill}
-                    </li>
-                  ))}
-                </ul>
-              </div>
-            ))}
+              );
+            })}
           </div>
         </div>
       </section>
@@ -348,58 +387,49 @@ export default function HomePage() {
       {/* ── Contact ── */}
       <section id="contact" className="bg-[var(--color-cream)]">
         <div className="mx-auto max-w-5xl px-6 py-24">
-          <header className="mb-12">
+          <header className="mb-12 text-center">
             <h2 className="text-3xl font-bold tracking-tight text-[var(--color-text)]">
               Get In Touch
             </h2>
-            <p className="mt-2 max-w-xl text-base text-[var(--color-muted)]">
-              Have a project in mind or want to collaborate? Send me a message and
-              I&apos;ll get back to you within 24 hours.
+            <p className="mt-2 max-w-xl mx-auto text-base text-[var(--color-muted)]">
+              Have a project in mind or want to collaborate? Reach out through any of these channels.
             </p>
           </header>
 
-          <div className="grid gap-12 lg:grid-cols-5">
-            {/* Form */}
-            <div className="lg:col-span-3">
-              <ContactForm />
-            </div>
-
-            {/* Social Links */}
-            <aside className="lg:col-span-2">
-              <h3 className="mb-5 text-sm font-semibold uppercase tracking-wider text-[var(--color-muted)]">
-                Other ways to reach me
-              </h3>
-              <ul className="space-y-4">
-                {socialLinks.map((link) => (
-                  <li key={link.label}>
-                    <a
-                      href={link.href}
-                      target={link.href.startsWith("mailto") ? undefined : "_blank"}
-                      rel={
-                        link.href.startsWith("mailto")
-                          ? undefined
-                          : "noopener noreferrer"
-                      }
-                      className="flex items-center gap-4 rounded-xl border border-[var(--color-border)] bg-[var(--color-surface)] p-4 shadow-sm transition-shadow hover:shadow-md"
-                      aria-label={link.label}
-                    >
-                      <span className="flex h-10 w-10 shrink-0 items-center justify-center rounded-lg bg-[var(--color-accent-light)] text-[var(--color-accent)]">
-                        {link.icon}
-                      </span>
-                      <div>
-                        <p className="text-sm font-medium text-[var(--color-text)]">
-                          {link.label}
-                        </p>
-                        <p className="text-xs text-[var(--color-muted)]">
-                          {link.value}
-                        </p>
-                      </div>
-                    </a>
-                  </li>
-                ))}
-              </ul>
-            </aside>
+          {/* Social Links Grid */}
+          <div className="grid gap-4 sm:grid-cols-3 max-w-3xl mx-auto">
+            {socialLinks.map((link) => (
+              <a
+                key={link.label}
+                href={link.href}
+                target={link.href.startsWith("mailto") ? undefined : "_blank"}
+                rel={
+                  link.href.startsWith("mailto")
+                    ? undefined
+                    : "noopener noreferrer"
+                }
+                className="flex flex-col items-center gap-3 rounded-xl border border-[var(--color-border)] bg-[var(--color-surface)] p-6 shadow-sm transition-all hover:shadow-md hover:-translate-y-1"
+                aria-label={link.label}
+              >
+                <span className="flex h-12 w-12 items-center justify-center rounded-xl bg-[var(--color-accent-light)] text-[var(--color-accent)]">
+                  {link.icon}
+                </span>
+                <div className="text-center">
+                  <p className="text-sm font-semibold text-[var(--color-text)]">
+                    {link.label}
+                  </p>
+                  <p className="mt-0.5 text-xs text-[var(--color-muted)]">
+                    {link.value}
+                  </p>
+                </div>
+              </a>
+            ))}
           </div>
+
+          {/* Additional Note */}
+          <p className="mt-10 text-center text-sm text-[var(--color-muted)]">
+            I typically respond within 24 hours.
+          </p>
         </div>
       </section>
     </>

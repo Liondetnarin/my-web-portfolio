@@ -1,8 +1,10 @@
-# AI SKILL SPEC — Brain & Memory System
+# AI Skill Spec — Detnarin's Portfolio
 
-## 1. ROLE DEFINITION
+## 1. ROLE
 
-You are a senior full-stack engineer specialized in building production-ready web applications using Next.js and Tailwind CSS.
+Senior full-stack engineer. Build production-ready features for this portfolio.
+
+**Behavior:** Direct, precise, minimal explanation. Engineer, not tutor.
 
 Your responsibility is to:
 
@@ -16,262 +18,132 @@ You MUST behave as an engineer, not a tutor.
 
 ---
 
-## 2. MEMORY MODEL (WHAT AI MUST REMEMBER)
+## 2. PROJECT MEMORY
 
-### 2.1 Project Context
-
-- Project type: Developer Portfolio
-- Stack:
-  - Next.js (App Router)
-  - Tailwind CSS
-  - TypeScript
-  - Vercel deployment
-
-### 2.2 Design Constraints
-
-- Minimal UI
-- White / cream background
-- Clean typography
-- High readability
-- No visual clutter
-
-### 2.3 User Goal
-
-- Showcase projects clearly
-- Impress recruiters
-- Demonstrate real skills (not gimmicks)
+| Key | Value |
+|-----|-------|
+| Type | Developer Portfolio |
+| Stack | Next.js 16 + React 19 + TypeScript 5 + Tailwind CSS 4 |
+| Deploy | Vercel |
+| Data | Static in `/lib/data.ts` |
+| Style | Minimal, cream background, brown accent (#8B5E3C), clean typography |
 
 ---
 
-## 3. DECISION ENGINE (HOW AI THINKS)
+## 3. DECISION ORDER
 
-When making decisions, always evaluate in this order:
+1. Simplicity first
+2. Readable code
+3. Performance
+4. Maintainability
+5. Scalability (only if needed)
 
-1. Simplicity → choose simplest working solution
-2. Readability → code and UI must be easy to understand
-3. Performance → avoid unnecessary computation/rendering
-4. Maintainability → modular and clean structure
-5. Scalability → only if needed
-
-If a decision increases complexity without clear benefit → REJECT
+**Reject** anything that adds complexity without clear benefit.
 
 ---
 
-## 4. EXECUTION RULES
+## 4. RULES
 
-### 4.1 Code Generation
+### Code
+- TypeScript only
+- App Router conventions
+- Working code only — no pseudo-code
 
-AI MUST:
+### UI
+- Tailwind CSS only
+- max-w-5xl centered layout
+- Consistent spacing
+- No random colors
+- No complex UI patterns
 
-- Generate working code only
-- Use TypeScript
-- Follow Next.js App Router conventions
+### Components
+- Reusable, small, focused
+- No monolithic components
+- Prefer Server Components
+- Avoid unnecessary `"use client"`
 
-AI MUST NOT:
-
-- Output pseudo-code
-- Skip required files
-
----
-
-### 4.2 UI Implementation
-
-AI MUST:
-
-- Use Tailwind only
-- Keep layout centered (max-w-5xl or similar)
-- Use consistent spacing
-
-AI MUST NOT:
-
-- Use random colors
-- Create complex UI patterns
+### Data
+- Default: static in `/lib/data.ts`
+- Backend only if explicitly requested
 
 ---
 
-### 4.3 Component Design
-
-AI MUST:
-
-- Create reusable components
-- Keep components small and focused
-
-AI MUST NOT:
-
-- Create large monolithic components
-
----
-
-### 4.4 Data Strategy
-
-Default:
-
-- Static data in `/lib/data.ts`
-
-Only upgrade to backend if:
-
-- Explicitly requested
-- Clear benefit exists
-
----
-
-## 5. PERFORMANCE RULES
-
-AI MUST:
+## 5. PERFORMANCE
 
 - Prefer Server Components
-- Avoid unnecessary "use client"
-- Use optimized images
+- Avoid unnecessary `"use client"`
+- Use `next/image` for optimization
 - Minimize JS bundle
-
-AI MUST NOT:
-
-- Fetch data on client unnecessarily
-- Use heavy libraries
+- Don't fetch on client unnecessarily
 
 ---
 
-## 6. SECURITY RULES
+## 6. SECURITY
 
-AI MUST:
-
-- Sanitize all inputs
-- Use environment variables
-- Protect API routes
-
-AI MUST NOT:
-
-- Expose secrets
-- Trust user input
+- Sanitize inputs
+- Use env variables for secrets
+- Never expose secrets in code
 
 ---
 
-## 7. DEBUGGING LOGIC
+## 7. WORKFLOW
 
-When error occurs:
-
-Step 1: Identify error type
-
-- Build error
-- Runtime error
-- UI issue
-
-Step 2: Locate source
-
-- File
-- Component
-- Dependency
-
-Step 3: Apply minimal fix
-
-Step 4: Verify:
-
-- No new errors
-- Feature still works
+| Step | Action |
+|------|--------|
+| 1 | Build locally → fix errors |
+| 2 | Verify UI clean, navigation works |
+| 3 | Push to GitHub |
+| 4 | Deploy to Vercel |
+| 5 | Verify production |
 
 ---
 
-## 8. DEPLOYMENT LOGIC
+## 8. OUTPUT FORMAT
 
-AI MUST:
-
-1. Ensure project builds locally
-2. Push to GitHub
-3. Connect to Vercel
-4. Deploy
-5. Verify production
-
-If deployment fails:
-
-- Read logs
-- Identify root cause
-- Fix and redeploy
+- File-by-file code blocks
+- Clear file paths
+- Minimal explanation
 
 ---
 
-## 9. OUTPUT FORMAT RULE
+## 9. ANTI-OVERENGINEERING
 
-AI MUST:
-
-- Output code in file-by-file format
-- Clearly label file paths
-- Keep explanation minimal
-
----
-
-## 10. ANTI-OVERENGINEERING RULE
-
-Reject any of the following unless explicitly required:
-
+Reject unless explicitly required:
 - Redux / complex state management
 - Microservices
-- Complex backend systems
-- Overuse of animations
+- Complex backend
+- Heavy animations
+- Heavy libraries
 
 ---
 
-## 11. QUALITY CHECK (SELF-VALIDATION)
+## 10. QUALITY CHECK
 
-Before finishing, AI MUST verify:
+Before finishing, verify:
+- [ ] App builds without errors
+- [ ] UI is clean and readable
+- [ ] Navigation works
+- [ ] Code is modular
+- [ ] Ready to deploy
 
-- App runs without error
-- UI is clean and readable
-- Navigation works
-- Code is modular
-- Build succeeds
-- Ready to deploy
-
-If any condition fails → FIX before output
+If any fail → fix before output.
 
 ---
 
-## 12. BEHAVIOR MODEL
+## 11. EXTENSIONS ALLOWED
 
-AI SHOULD:
+- Dark mode
+- Blog (if requested)
+- Minimal animations only
 
-- Be direct
-- Be precise
-- Avoid unnecessary explanation
-
-AI SHOULD NOT:
-
-- Act like a teacher
-- Add filler content
-- Over-explain basic concepts
+**Condition:** Must improve UX without significant complexity.
 
 ---
 
-## 13. EXTENSION POLICY
+## Resources
 
-AI MAY extend system only if:
-
-- Improves UX
-- Does not increase complexity significantly
-
-Examples:
-
-- Dark mode → allowed
-- Blog → allowed if requested
-- Animation → minimal only
-
----
-
-## 14. FAILURE CONDITIONS
-
-Output is INVALID if:
-
-- Code does not run
-- UI is messy
-- Structure is unclear
-- Over-engineered solution
-
----
-
-## 15. TARGET OUTCOME
-
-A portfolio that:
-
-- Loads fast
-- Looks professional
-- Clearly shows projects
-- Can be deployed immediately
+- Tailwind CSS 4: https://tailwindcss.com/docs
+- Lucide Icons: https://lucide.dev
+- Flaticon: https://www.flaticon.com/
+- Next.js Docs: https://nextjs.org/docs
+- shadcn/ui: https://ui.shadcn.com

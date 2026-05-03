@@ -128,3 +128,121 @@
 - [x] เปลี่ยนปุ่ม "Hire Me" เป็น "Resume PDF" พร้อมลิงก์ไปยังไฟล์ PDF (ใช้ Placeholder `#` ไว้ก่อน)
 - [x] เพิ่ม `imageUrl` field ให้กับ `Project` type ใน `types/index.ts`
 - [x] ปรับแก้ `ProjectCard` ให้รองรับรูปภาพตัวอย่าง ถ้าไม่มีจะแสดงกล่อง Placeholder สีสวยงามแทน
+
+---
+
+### Step 13 — Hero, Contact & Projects UI Overhaul ✅
+
+- [x] Hero: เพิ่ม Profile Image Placeholder (ฝั่งขวา) พร้อม decorative element รองรับใส่รูปจริงทีหลัง
+- [x] Hero: เปลี่ยน tech tags เป็น pill badges พร้อม icon (▲ Next.js, ⚛ React, TS TypeScript, 🐍 Python, 🟢 Node.js)
+- [x] Contact: ลบ ContactForm ออก เหลือเฉพาะ social link cards (Email, GitHub, LinkedIn) จัดแบบ grid-3-cols
+- [x] Other Projects: สร้าง `components/ProjectSlider.tsx` (Client Component) แสดง 2 โปรเจกต์พร้อมปุ่ม prev/next + dots indicator
+- [x] CLAUDE.md: อัปเดตเป็น Project Context จริงแทน placeholder
+- [x] SKILL.md: ย่อ + อัปเดต stack ให้ตรงกับโปรเจกต์จริง (Next.js 16, React 19, Tailwind 4)
+
+---
+
+## 📋 แผนงานถัดไป
+
+### Step 14 — Profile Image & Resume
+
+- [ ] ใส่รูป profile จริงใน `public/images/profile.jpg`
+- [ ] แก้ `app/page.tsx` Hero ให้แสดงรูปจริงด้วย `<img>` (หรือ `next/image`)
+- [ ] อัปโหลด Resume PDF จริงใส่ `public/resume.pdf`
+- [ ] อัปเดต Resume PDF link ใน Navbar จาก `#` เป็น `/resume.pdf`
+
+---
+
+### Step 15 — Skills Section: Image Icons ✅
+
+- [x] ลบ chip badge แบบ text-icon ออก
+- [x] สร้าง SVG placeholder icons 19 ไฟล์ใน `public/images/skills/` พร้อมสีแบรนด์จริง
+- [x] Redesign Skills section เป็น icon grid (4 cols) — แต่ละ skill: icon box + ชื่อ
+- [x] Layout เปลี่ยนจาก 4-col cards → 2-col cards (ช่องว่างมากขึ้น สำหรับ icon grid)
+- [x] Slug map: skill name → filename (`/images/skills/{slug}.svg`)
+
+**SVG icons ที่ต้องแทนที่ด้วยรูปจาก Flaticon:**
+| Filename | Tech | Flaticon search |
+|----------|------|----------------|
+| `html.svg` | HTML5 | "html5" |
+| `css.svg` | CSS3 | "css3" |
+| `javascript.svg` | JavaScript | "javascript" |
+| `typescript.svg` | TypeScript | "typescript" |
+| `react.svg` | React | "react" |
+| `nextjs.svg` | Next.js | "nextjs" |
+| `tailwindcss.svg` | Tailwind CSS | "tailwind" |
+| `nodejs.svg` | Node.js | "nodejs" |
+| `python.svg` | Python | "python" |
+| `java.svg` | Java | "java" |
+| `springboot.svg` | Spring Boot | "spring" |
+| `csharp.svg` | C# | "csharp" |
+| `mysql.svg` | MySQL | "mysql" |
+| `mongodb.svg` | MongoDB | "mongodb" |
+| `git.svg` | Git | "git" |
+| `react-native.svg` | React Native | "react" |
+| `unity.svg` | Unity | "unity" |
+| `unreal.svg` | Unreal Engine 5 | "unreal engine" |
+| `google-adk.svg` | Google ADK | "google" |
+
+---
+
+### Step 16 — Color Scheme: Green / Dark Gray / White ✅
+
+- [x] `--color-cream`: `#faf9f6` → `#f1f5f9` (cool slate-100, ไม่ warm cream)
+- [x] `--color-border`: `#e8e5de` → `#e2e8f0` (cooler slate-200)
+- [x] `--color-text`: `#1a1a18` → `#0f172a` (slate-900, เข้มขึ้น)
+- [x] `--color-muted`: `#72716c` → `#64748b` (slate-500, cooler)
+- [x] `--color-accent`: `#2d6a4f` → `#16a34a` (green-600, สด/vivid ขึ้น)
+- [x] `--color-accent-light`: `#d8f3e4` → `#dcfce7` (green-100)
+- [x] Footer: เปลี่ยนเป็น dark gray (`#0f172a`) พร้อม white/slate text
+- [x] Build ผ่านแล้ว ✓
+
+---
+
+### Step 17 — Hero & Projects UX ✅
+
+- [x] Profile Hero: เปลี่ยนจาก `rounded-2xl` → `rounded-full` (วงกลม)
+- [x] Profile Hero: Decorative element เปลี่ยนเป็น accent ring รอบวงกลม
+- [x] ProjectSlider: เพิ่ม fade transition (opacity 180ms) เมื่อเปลี่ยน slide
+- [x] ProjectSlider: เพิ่ม slide counter "Showing X–Y of Z"
+- [x] ProjectSlider: Active dot เปลี่ยนจาก dot → elongated pill
+- [x] ProjectSlider: Arrows ย้ายไปฝั่งขวา, dots ฝั่งซ้าย (justify-between layout)
+- [x] Build ผ่านแล้ว ✓
+
+---
+
+### Step 18 — Smooth Scroll & Accessibility ✅
+
+- [x] `scroll-behavior: smooth` ใน `html` (มีอยู่แล้ว)
+- [x] `:focus-visible` outline accent ครอบคลุมทุก element (มีอยู่แล้ว)
+- [x] `aria-label` ครบทุก icon-only buttons
+
+---
+
+## 📋 แผนงานถัดไป
+
+### Step 19 — Profile Image & Resume (รอ asset จากคุณ)
+
+| รายการ | action |
+|--------|--------|
+| รูป profile จริง | ใส่ไฟล์ที่ `public/images/profile.jpg` (หรือ `.png`) |
+| แก้ Hero | เปลี่ยน placeholder div → `<img src="/images/profile.jpg">` |
+| Resume PDF | ใส่ไฟล์ที่ `public/resume.pdf` |
+| แก้ Navbar | เปลี่ยน `href="#"` → `href="/resume.pdf"` ใน Resume PDF link |
+
+---
+
+### Step 20 — Replace Skill SVG Placeholders ด้วยรูปจาก Flaticon
+
+1. ดาวน์โหลด icon จาก [Flaticon](https://www.flaticon.com/) ตาม table ใน Step 15
+2. ตั้งชื่อไฟล์ตาม slug (เช่น `react.svg`, `python.svg`)
+3. วางใน `public/images/skills/`
+4. ไฟล์จะ replace placeholder SVG ทันที (ชื่อไฟล์เดิม)
+
+---
+
+### Step 21 — Deploy to Production
+
+- [ ] `npm run build` ผ่าน ✓ (ผ่านแล้ว)
+- [ ] Push ทุก changes ไป GitHub
+- [ ] Verify บน Vercel production: https://my-web-portfolio-fawn.vercel.app/
