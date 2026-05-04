@@ -18,10 +18,9 @@ const remainingProjects = projects;
 
 const heroTechTags = [
   { name: "Next.js", icon: "/images/icon-svg/nextjs-fill-svgrepo-com.svg" },
-  { name: "React", icon: "/images/icon-svg/react-svgrepo-com.svg" },
   { name: "TypeScript", icon: "/images/icon-svg/typescript-svgrepo-com.svg" },
+  { name: "React", icon: "/images/icon-svg/react-svgrepo-com.svg" },
   { name: "Python", icon: "/images/icon-svg/python-svgrepo-com.svg" },
-  { name: "Node.js", icon: "/images/icon-svg/node-svgrepo-com.svg" },
 ];
 
 const skillIconPathMap: Record<string, string> = {
@@ -43,9 +42,7 @@ const skillIconPathMap: Record<string, string> = {
   Supabase: "/images/icon-svg/supabase-icon.svg",
   Figma: "/images/icon-svg/figma-svgrepo-com.svg",
   "Google ADK": "/images/skills/google-adk.svg",
-  "React Native": "/images/skills/react-native.svg",
-  Unity: "/images/skills/unity.svg",
-  "Unreal Engine 5": "/images/skills/unreal.svg",
+  Docker: "/images/icon-svg/docker-svgrepo-com.svg",
 };
 
 const socialLinks = [
@@ -90,6 +87,7 @@ function getSkillIcon(skill: string) {
 export default function HomePage() {
   return (
     <>
+      {/* Section Hero */}
       <section className="overflow-hidden border-b border-slate-200 bg-[radial-gradient(circle_at_75%_20%,rgba(16,185,129,0.12),transparent_28%),linear-gradient(180deg,#ffffff_0%,#f6f8fb_100%)]">
         <div className="mx-auto grid min-h-[calc(100vh-4rem)] max-w-6xl gap-12 px-6 py-16 lg:grid-cols-[1.05fr_0.95fr] lg:items-center lg:py-20">
           <div>
@@ -97,20 +95,35 @@ export default function HomePage() {
               Full-Stack Developer
             </p>
             <h1 className="max-w-3xl text-5xl font-black tracking-tight text-slate-950 sm:text-6xl lg:text-7xl">
-              Building practical web apps and AI-powered tools.
+              Hi there!<br></br> <span className="text-emerald-500">I&apos;m Detnarin.</span>
             </h1>
             <p className="mt-6 max-w-2xl text-lg leading-8 text-slate-600">
-              I&apos;m {personalInfo.name}, a developer who turns product ideas into clean interfaces, reliable backend flows, and testable user experiences.
+              Full-stack developer with hands-on experience building end-to-end web applications.
             </p>
             <p className="mt-4 max-w-2xl text-base leading-7 text-slate-500">
               {personalInfo.bio}
             </p>
+            
+            <div className="mt-5 flex flex-wrap gap-2">
+              {heroTechTags.map((tech) => (
+                <span
+                  key={tech.name}
+                  className="inline-flex items-center gap-2 rounded-lg border border-slate-200 bg-white px-3 py-2 text-sm font-bold text-slate-700 shadow-sm hover:scale-[1.09] transition-transform"
+                >
+                  <span className="flex h-6 w-6 items-center justify-center rounded-md bg-slate-50 p-1">
+                    {/* eslint-disable-next-line @next/next/no-img-element */}
+                    <img src={tech.icon} alt="" className="h-full w-full object-contain" aria-hidden="true" />
+                  </span>
+                  {tech.name}
+                </span>
+              ))}
+            </div>
 
             <div className="mt-8 flex flex-wrap gap-3">
               <Link
                 id="cta-view-work"
                 href="#projects"
-                className="inline-flex items-center gap-2 rounded-md bg-slate-950 px-6 py-3 text-sm font-black text-white shadow-sm transition-colors hover:bg-[var(--color-accent-hover)]"
+                className="inline-flex items-center gap-2 rounded-md border border-slate-950 bg-slate-950 px-6 py-3 text-sm font-black text-white shadow-sm transition-colors hover:border-emerald-500 hover:bg-emerald-400 hover:text-slate-950"
               >
                 View Work
                 <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
@@ -121,33 +134,20 @@ export default function HomePage() {
               <a
                 id="cta-contact"
                 href="#contact"
-                className="inline-flex rounded-md border border-slate-300 bg-white px-6 py-3 text-sm font-black text-slate-950 shadow-sm transition-colors hover:border-slate-950"
+                className="inline-flex rounded-md border border-slate-300 bg-white px-6 py-3 text-sm font-black text-slate-950 shadow-sm transition-colors hover:border-slate-950 hover:bg-slate-950 hover:text-white"
               >
                 Contact Me
               </a>
             </div>
-
-            <div className="mt-10 grid max-w-xl grid-cols-3 gap-3">
-              {[
-                { label: "Projects", value: "6+" },
-                { label: "Featured Builds", value: "3" },
-                { label: "Award", value: "1" },
-              ].map((stat) => (
-                <div key={stat.label} className="rounded-xl border border-slate-200 bg-white/75 p-4 shadow-sm">
-                  <p className="text-2xl font-black text-slate-950">{stat.value}</p>
-                  <p className="mt-1 text-xs font-semibold text-slate-500">{stat.label}</p>
-                </div>
-              ))}
-            </div>
           </div>
 
-          <div className="relative mx-auto w-full max-w-md lg:mx-0 lg:justify-self-end">
+          <div className="relative mx-auto w-full max-w-md lg:mx-0 lg:justify-self-end hover:scale-[1.02] transition-transform">
             <div className="absolute -right-8 top-8 h-40 w-40 rounded-full bg-emerald-200/50 blur-3xl" />
             <div className="relative overflow-hidden rounded-[2rem] border border-slate-200 bg-white p-3 shadow-2xl">
               <div className="relative aspect-[4/5] overflow-hidden rounded-[1.5rem] bg-slate-100">
                 {/* eslint-disable-next-line @next/next/no-img-element */}
                 <img
-                  src="/images/img-profile.png"
+                  src="/images/img-profile.webp"
                   alt={`${personalInfo.name} profile photo`}
                   className="h-full w-full object-cover object-center"
                 />
@@ -157,35 +157,23 @@ export default function HomePage() {
                   Recent focus
                 </p>
                 <p className="mt-2 text-sm font-semibold">
-                  AI Voice Assistant, CMS websites, and interactive software prototypes.
+                  Web development, AI Automation systems, IoT, and interactive software prototypes.
                 </p>
               </div>
             </div>
 
-            <div className="mt-5 flex flex-wrap gap-2">
-              {heroTechTags.map((tech) => (
-                <span
-                  key={tech.name}
-                  className="inline-flex items-center gap-2 rounded-lg border border-slate-200 bg-white px-3 py-2 text-sm font-bold text-slate-700 shadow-sm"
-                >
-                  <span className="flex h-6 w-6 items-center justify-center rounded-md bg-slate-50 p-1">
-                    {/* eslint-disable-next-line @next/next/no-img-element */}
-                    <img src={tech.icon} alt="" className="h-full w-full object-contain" aria-hidden="true" />
-                  </span>
-                  {tech.name}
-                </span>
-              ))}
-            </div>
           </div>
         </div>
       </section>
 
+      {/* Section Projects */}
       <section id="projects" className="border-b border-slate-200 bg-[var(--color-cream)]">
         <div className="mx-auto max-w-6xl px-6 py-20">
           <ProjectSlider projects={remainingProjects} />
         </div>
       </section>
 
+      {/* Section Skills */}
       <section id="skills" className="border-b border-slate-200 bg-white">
         <div className="mx-auto max-w-6xl px-6 py-20 lg:py-24">
           <div className="mb-12 max-w-2xl">
@@ -208,7 +196,7 @@ export default function HomePage() {
                 </h3>
                 <div className="grid grid-cols-3 gap-3 sm:grid-cols-4">
                   {category.skills.map((skill) => (
-                    <div key={skill} className="rounded-xl border border-slate-200 bg-white p-3 shadow-sm">
+                    <div key={skill} className="rounded-xl border border-slate-200 bg-white p-3 shadow-sm hover:scale-[1.1] transition-transform">
                       <div className="mx-auto flex h-11 w-11 items-center justify-center rounded-lg bg-slate-50 p-2">
                         {/* eslint-disable-next-line @next/next/no-img-element */}
                         <img
@@ -231,13 +219,14 @@ export default function HomePage() {
         </div>
       </section>
 
-      <section id="experience" className="border-b border-slate-800 bg-[var(--color-dark)] text-white">
+      {/* Section Experience */}
+      <section id="experience" className="border-y border-emerald-400/20 bg-[#030712] text-white">
         <div className="mx-auto grid max-w-6xl gap-10 px-6 py-20 lg:grid-cols-[0.75fr_1fr] lg:py-24">
           <div>
-            <p className="mb-3 text-xs font-black uppercase tracking-[0.18em] text-emerald-300">
+            <p className="mb-3 inline-flex rounded-full border border-emerald-300/25 bg-emerald-300/10 px-3 py-1.5 text-xs font-black uppercase tracking-[0.18em] text-emerald-300">
               Experience
             </p>
-            <h2 className="text-4xl font-black tracking-tight">
+            <h2 className="mt-5 text-4xl font-black tracking-tight text-white">
               Built with feedback, testing, and real constraints.
             </h2>
             <p className="mt-4 text-base leading-7 text-slate-400">
@@ -247,7 +236,7 @@ export default function HomePage() {
 
           <div className="space-y-4">
             {experiences.map((exp) => (
-              <article key={`${exp.company}-${exp.role}`} className="rounded-2xl border border-white/10 bg-white/[0.04] p-6">
+              <article key={`${exp.company}-${exp.role}`} className="rounded-2xl border border-emerald-300/20 bg-slate-900 p-6 shadow-[0_18px_60px_rgba(0,0,0,0.25)] hover:scale-[1.02] transition-transform">
                 <div className="flex flex-wrap items-start justify-between gap-4">
                   <div>
                     <h3 className="text-xl font-black">{exp.role}</h3>
@@ -262,7 +251,7 @@ export default function HomePage() {
                 </p>
               </article>
             ))}
-            <article className="rounded-2xl border border-emerald-300/25 bg-emerald-300/10 p-6">
+            <article className="rounded-2xl border border-emerald-300/30 bg-emerald-400/12 p-6 shadow-[0_18px_60px_rgba(16,185,129,0.12)] hover:scale-[1.02] transition-transform">
               <h3 className="text-xl font-black">Award-winning interactive project</h3>
               <p className="mt-3 text-sm leading-7 text-slate-300">
                 Coding is Magic earned 2nd place in a 2026 showcase for turning Python learning into a playable Unity experience.
@@ -272,6 +261,7 @@ export default function HomePage() {
         </div>
       </section>
 
+      {/* Section About */}
       <section id="about" className="border-b border-slate-200 bg-white">
         <div className="mx-auto grid max-w-6xl gap-10 px-6 py-20 lg:grid-cols-[0.85fr_1.15fr]">
           <div>
@@ -293,6 +283,7 @@ export default function HomePage() {
         </div>
       </section>
 
+      {/* Section Contact */}
       <section id="contact" className="bg-[var(--color-cream)]">
         <div className="mx-auto max-w-6xl px-6 py-20 lg:py-24">
           <div className="rounded-3xl bg-slate-950 p-8 text-white shadow-2xl sm:p-10 lg:p-12">
@@ -302,7 +293,7 @@ export default function HomePage() {
                   Contact
                 </p>
                 <h2 className="text-4xl font-black tracking-tight sm:text-5xl">
-                  Let&apos;s build something useful.
+                  Let&apos;s contact and build something together.
                 </h2>
                 <p className="mt-4 max-w-2xl text-base leading-7 text-slate-400">
                   Open to full-stack, frontend, and AI-assisted product roles. Send a message and I&apos;ll get back with context, links, or next steps.
@@ -316,7 +307,7 @@ export default function HomePage() {
                     href={link.href}
                     target={link.href.startsWith("mailto") ? undefined : "_blank"}
                     rel={link.href.startsWith("mailto") ? undefined : "noopener noreferrer"}
-                    className="flex items-center gap-4 rounded-xl border border-white/10 bg-white/[0.04] p-4 transition-colors hover:bg-white/[0.08]"
+                    className="flex items-center gap-4 rounded-xl border border-white/10 bg-white/[0.04] p-4 transition-colors hover:bg-white/[0.08] hover:scale-[1.02] transition-transform"
                     aria-label={link.label}
                   >
                     <span className="flex h-11 w-11 items-center justify-center rounded-lg bg-emerald-300 text-slate-950">

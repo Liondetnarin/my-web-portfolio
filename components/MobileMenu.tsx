@@ -19,7 +19,7 @@ export default function MobileMenu({ links }: { links: NavLink[] }) {
         onClick={() => setOpen(!open)}
         aria-label="Toggle menu"
         aria-expanded={open}
-        className="flex h-10 w-10 flex-col items-center justify-center gap-1.5 rounded-md border border-white/10 text-white transition-colors hover:bg-white/10"
+        className="flex h-10 w-10 flex-col items-center justify-center gap-1.5 rounded-md border border-emerald-300/25 text-slate-100 transition-colors hover:bg-emerald-400/12 hover:text-emerald-300"
       >
         <span
           className={`block h-0.5 w-5 bg-current transition-transform duration-200 ${open ? "translate-y-2 rotate-45" : ""}`}
@@ -34,14 +34,14 @@ export default function MobileMenu({ links }: { links: NavLink[] }) {
 
       {/* Dropdown */}
       {open && (
-        <div className="absolute left-0 right-0 top-full border-b border-white/10 bg-[var(--color-dark)] shadow-2xl">
+        <div className="absolute left-0 right-0 top-full border-b border-emerald-400/25 bg-[#020617] shadow-2xl">
           <nav className="mx-auto flex max-w-6xl flex-col gap-1 px-6 py-4">
             {links.map((link) => (
               <Link
                 key={link.href}
                 href={link.href}
                 onClick={() => setOpen(false)}
-                className="rounded-md px-3 py-3 text-sm font-bold uppercase tracking-[0.14em] text-slate-400 transition-colors hover:bg-white/10 hover:text-white"
+                className="rounded-md px-3 py-3 text-sm font-bold uppercase tracking-[0.14em] text-slate-300 transition-colors hover:bg-emerald-400/12 hover:text-emerald-300"
               >
                 {link.label}
               </Link>
@@ -49,7 +49,7 @@ export default function MobileMenu({ links }: { links: NavLink[] }) {
             <a
               href="#contact"
               onClick={() => setOpen(false)}
-              className="mt-2 rounded-md bg-[var(--color-accent)] px-4 py-3 text-center text-xs font-black uppercase tracking-[0.14em] text-[#06130f] transition-colors hover:bg-[var(--color-accent-hover)]"
+              className="mt-2 rounded-md border border-emerald-300/40 bg-emerald-400 px-4 py-3 text-center text-xs font-black uppercase tracking-[0.14em] text-slate-950 transition-colors hover:bg-emerald-300"
             >
               Hire Me
             </a>

@@ -3,10 +3,10 @@ import type { Experience, PersonalInfo, Project, SkillCategory } from "@/types";
 export const personalInfo: PersonalInfo = {
   name: "Detnarin Chaiaksorn",
   role: "Full-Stack Developer",
-  bio: "Full-stack developer focused on building clean, practical web applications with React, Next.js, Python, and backend systems. Experienced in AI voice assistant development, CMS-powered websites, game projects, and real-world testing from internship work.",
+  bio: "Frontend, backend, and databases. Focused on delivering functional systems with real-world workflows, and continuously improving backend and system design capabilities.",
   email: "detnarin.cha@gmail.com",
   github: "https://github.com/Liondetnarin",
-  linkedin: "https://linkedin.com/in/detnarin-chaiaksorn",
+  linkedin: "https://linkedin.com/in/detnarin-chaiaksorn-47b154403",
 };
 
 export const projects: Project[] = [
@@ -18,7 +18,7 @@ export const projects: Project[] = [
       "Built an AI voice assistant during internship at FORVIZ. Developed backend features, designed database, and tested voice pipelines using Google ADK and Python. Implemented frontend UI and conducted real-world testing with user feedback.",
     contribution:
       "Implemented backend features, designed database flows, built UI from prototypes, and tested voice pipelines with real users.",
-    techStack: ["Python", "Google ADK", "React", "TypeScript"],
+    techStack: ["Python", "Google ADK"],
     githubUrl: "https://github.com/Liondetnarin",
     category: "ai",
     featured: true,
@@ -32,8 +32,8 @@ export const projects: Project[] = [
       "Developed a high-performance marketing website with multi-language support and CMS integration using Next.js, Tailwind, and Sanity. Focused on performance and clean UI.",
     contribution:
       "Delivered responsive pages, CMS content structure, multilingual routing, and performance-focused UI details.",
-    techStack: ["Next.js", "Tailwind CSS", "Sanity", "TypeScript"],
-    imageUrl: "/images/img-wenworks.png",
+    techStack: ["Next.js", "Tailwind CSS","TypeScript", "Sanity"],
+    imageUrl: "/images/img-ww.webp",
     githubUrl: "https://github.com/Liondetnarin",
     demoUrl: "https://www.wenworks.co/th",
     category: "web",
@@ -49,7 +49,7 @@ export const projects: Project[] = [
     contribution:
       "Built gameplay systems, learning interactions, and presentation-ready game flow with Unity and C#.",
     techStack: ["Unity", "C#", "2D Game"],
-    imageUrl: "/images/img-coding-is-magic.png",
+    imageUrl: "/images/img-coding-is-magic.webp",
     githubUrl: "https://github.com/Tanakorn-C/Coding-is-Magic-RPG",
     demoUrl: "https://play.unity.com/en/games/a3a8b201-7355-4eb9-9879-6b9b04a3737b/webgl",
     category: "game",
@@ -58,19 +58,6 @@ export const projects: Project[] = [
   },
   {
     id: "4",
-    title: "HomeFlow",
-    summary: "Mobile-first task and household resource management app.",
-    description:
-      "Mobile-first web app for managing home tasks and resources with a clean and user-friendly interface.",
-    contribution:
-      "Designed core mobile flows and built practical task management screens with a clean interaction model.",
-    techStack: ["React Native", "JavaScript"],
-    githubUrl: "https://github.com/Liondetnarin",
-    category: "mobile",
-    badge: "Mobile App",
-  },
-  {
-    id: "5",
     title: "UniFood",
     summary: "Restaurant review platform with rankings, filtering, and user ratings.",
     description:
@@ -78,14 +65,14 @@ export const projects: Project[] = [
     contribution:
       "Built full-stack features across React UI, Spring Boot APIs, MongoDB data, and review filtering flows.",
     techStack: ["React", "Spring Boot", "MongoDB", "Java"],
-    imageUrl: "/images/img-unifood.png",
+    imageUrl: "/images/img-unifood.webp",
     githubUrl: "https://github.com/Liondetnarin",
     demoUrl: "https://canva.link/qpttc7ehv75oau9",
     category: "fullstack",
     badge: "Full-Stack Platform",
   },
   {
-    id: "6",
+    id: "5",
     title: "UTCC PHOBIA",
     summary: "3D horror game prototype built with Unreal Engine 5.",
     description:
@@ -93,7 +80,7 @@ export const projects: Project[] = [
     contribution:
       "Created interactive gameplay, environments, and presentation-ready horror experience in Unreal Engine 5.",
     techStack: ["Unreal Engine 5", "Blender", "3D"],
-    imageUrl: "/images/img-utcc.png",
+    imageUrl: "/images/img-utcc.webp",
     githubUrl: "https://github.com/Liondetnarin",
     demoUrl: "https://youtu.be/dMLk6AdQNng",
     category: "game",
@@ -112,11 +99,11 @@ export const skillCategories: SkillCategory[] = [
   },
   {
     name: "Database",
-    skills: ["MySQL", "MongoDB", "Supabase"],
+    skills: ["MongoDB", "Supabase", "MySQL"],
   },
   {
     name: "Tools",
-    skills: ["Git", "Figma"],
+    skills: ["Git", "Figma", "Docker"],
   },
 ];
 

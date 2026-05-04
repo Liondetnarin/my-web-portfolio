@@ -15,13 +15,25 @@ function getProjectInitials(title: string) {
     .toUpperCase();
 }
 
+function getCategoryLabel(category: Project["category"]) {
+  const labels: Record<Project["category"], string> = {
+    ai: "AI",
+    web: "Web",
+    mobile: "Mobile",
+    game: "Game",
+    fullstack: "Full-Stack",
+  };
+
+  return labels[category];
+}
+
 export default function ProjectCard({ project, compact = false }: ProjectCardProps) {
   const visibleTech = project.techStack.slice(0, compact ? 3 : 4);
   const hiddenTechCount = project.techStack.length - visibleTech.length;
 
   return (
     <article className="group flex h-full flex-col overflow-hidden rounded-xl border border-slate-200 bg-white shadow-sm transition-all duration-300 hover:-translate-y-1 hover:border-slate-300 hover:shadow-xl">
-      <div className="relative aspect-[16/10] overflow-hidden bg-[var(--color-dark)]">
+      <div className="relative aspect-[16/9] overflow-hidden bg-[var(--color-dark)]">
         {project.imageUrl ? (
           /* eslint-disable-next-line @next/next/no-img-element */
           <img
@@ -43,8 +55,8 @@ export default function ProjectCard({ project, compact = false }: ProjectCardPro
               {project.badge}
             </span>
           )}
-          <span className="rounded-full bg-emerald-400 px-3 py-1 text-[11px] font-black capitalize text-emerald-950 shadow-sm">
-            {project.category}
+          <span className="rounded-full bg-emerald-400 px-3 py-1 text-[11px] font-black text-emerald-950 shadow-sm">
+            {getCategoryLabel(project.category)}
           </span>
         </div>
       </div>
@@ -106,7 +118,7 @@ export default function ProjectCard({ project, compact = false }: ProjectCardPro
               href={project.demoUrl}
               target="_blank"
               rel="noopener noreferrer"
-              className="inline-flex items-center gap-2 rounded-md bg-slate-950 px-3 py-2 text-xs font-bold text-white transition-colors hover:bg-[var(--color-accent-hover)]"
+              className="inline-flex items-center gap-2 rounded-md border border-emerald-500 bg-emerald-400 px-3 py-2 text-xs font-black text-slate-950 shadow-sm transition-colors hover:border-slate-950 hover:bg-slate-950 hover:text-white"
               aria-label={`View ${project.title} live demo`}
             >
               <svg
