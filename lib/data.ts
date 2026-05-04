@@ -10,38 +10,22 @@ export const personalInfo: PersonalInfo = {
 };
 
 export const projects: Project[] = [
-  {
-    id: "1",
-    title: "AI Voice Assistant",
-    summary: "Voice-driven assistant built across backend, database, and frontend workflows.",
-    description:
-      "Built an AI voice assistant during internship at FORVIZ. Developed backend features, designed database, and tested voice pipelines using Google ADK and Python. Implemented frontend UI and conducted real-world testing with user feedback.",
-    contribution:
-      "Implemented backend features, designed database flows, built UI from prototypes, and tested voice pipelines with real users.",
-    techStack: ["Python", "Google ADK"],
-    githubUrl: "https://github.com/Liondetnarin",
-    category: "ai",
-    featured: true,
-    badge: "Internship Project",
-  },
+  // {
+  //   id: "1",
+  //   title: "AI Voice Assistant",
+  //   summary: "Voice-driven assistant built across backend, database, and frontend workflows.",
+  //   description:
+  //     "Built an AI voice assistant during internship at FORVIZ. Developed backend features, designed database, and tested voice pipelines using Google ADK and Python. Implemented frontend UI and conducted real-world testing with user feedback.",
+  //   contribution:
+  //     "Implemented backend features, designed database flows, built UI from prototypes, and tested voice pipelines with real users.",
+  //   techStack: ["Python", "Google ADK"],
+  //   githubUrl: "https://github.com/Liondetnarin",
+  //   category: "ai",
+  //   featured: true,
+  //   badge: "Internship Project",
+  // },
   {
     id: "2",
-    title: "WenWorks",
-    summary: "CMS-powered multilingual marketing website built with Next.js.",
-    description:
-      "Developed a high-performance marketing website with multi-language support and CMS integration using Next.js, Tailwind, and Sanity. Focused on performance and clean UI.",
-    contribution:
-      "Delivered responsive pages, CMS content structure, multilingual routing, and performance-focused UI details.",
-    techStack: ["Next.js", "Tailwind CSS","TypeScript", "Sanity"],
-    imageUrl: "/images/img-ww.webp",
-    githubUrl: "https://github.com/Liondetnarin",
-    demoUrl: "https://www.wenworks.co/th",
-    category: "web",
-    featured: true,
-    badge: "Production Website",
-  },
-  {
-    id: "3",
     title: "Coding is Magic",
     summary: "Award-winning 2D game that teaches Python through puzzle play.",
     description:
@@ -57,19 +41,36 @@ export const projects: Project[] = [
     badge: "2nd Place Award",
   },
   {
-    id: "4",
-    title: "UniFood",
-    summary: "Restaurant review platform with rankings, filtering, and user ratings.",
+    id: "3",
+    title: "WenWorks",
+    summary: "CMS-powered multilingual marketing website built with Next.js.",
     description:
-      "Full-stack restaurant review platform with filtering, ranking, and user ratings. Built using React, Spring Boot, and MongoDB.",
+      "Developed a high-performance marketing website with multi-language support and CMS integration using Next.js, Tailwind, and Sanity. Focused on performance and clean UI.",
     contribution:
-      "Built full-stack features across React UI, Spring Boot APIs, MongoDB data, and review filtering flows.",
-    techStack: ["React", "Spring Boot", "MongoDB", "Java"],
-    imageUrl: "/images/img-unifood.webp",
+      "Delivered responsive pages, CMS content structure, multilingual routing, and performance-focused UI details.",
+    techStack: ["Next.js", "Tailwind CSS","TypeScript", "Sanity"],
+    imageUrl: "/images/img-ww.webp",
     githubUrl: "https://github.com/Liondetnarin",
-    demoUrl: "https://canva.link/qpttc7ehv75oau9",
+    demoUrl: "https://www.wenworks.co/th",
+    category: "web",
+    featured: true,
+    badge: "Production Website",
+  },
+  {
+    id: "4",
+    title: "TF-Superbike",
+    summary: "Web landing page for a high-performance motorcycle business.",
+    description:
+      "Web landing page for a high-performance motorcycle business. Built with Next.js and Tailwind CSS, featuring responsive design and performance optimizations.",
+    contribution:
+      "Created responsive design, performance optimizations, and presentation-ready web experience with Next.js and Tailwind CSS.",
+    techStack: ["Next.js", "Tailwind CSS","TypeScript"],
+    imageUrl: "/images/img-tf.webp",
+    githubUrl: "https://github.com/Liondetnarin",
+    demoUrl: "https://tf-superbike.vercel.app/",
     category: "fullstack",
-    badge: "Full-Stack Platform",
+    featured: true,
+    badge: "Production Website",
   },
   {
     id: "5",
@@ -85,6 +86,21 @@ export const projects: Project[] = [
     demoUrl: "https://youtu.be/dMLk6AdQNng",
     category: "game",
     badge: "3D Game",
+  },
+  {
+    id: "6",
+    title: "UniFood",
+    summary: "Restaurant review platform with rankings, filtering, and user ratings.",
+    description:
+      "Full-stack restaurant review platform with filtering, ranking, and user ratings. Built using React, Spring Boot, and MongoDB.",
+    contribution:
+      "Built full-stack features across React UI, Spring Boot APIs, MongoDB data, and review filtering flows.",
+    techStack: ["React", "Spring Boot", "MongoDB", "Java"],
+    imageUrl: "/images/img-unifood.webp",
+    githubUrl: "https://github.com/Liondetnarin",
+    demoUrl: "https://canva.link/qpttc7ehv75oau9",
+    category: "fullstack",
+    badge: "Full-Stack Platform",
   },
 ];
 

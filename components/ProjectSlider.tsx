@@ -39,10 +39,10 @@ export default function ProjectSlider({ projects }: ProjectSliderProps) {
       <div className="mb-6 flex flex-wrap items-center justify-between gap-4">
         <div>
           <p className="text-xs font-bold uppercase tracking-[0.18em] text-[var(--color-accent-hover)]">
-            Project archive
+            Project showcase
           </p>
           <p className="mt-1 text-sm text-slate-500">
-            Browse smaller builds, prototypes, and experiments.
+            Browse selected web, AI, full-stack, and interactive projects.
           </p>
         </div>
 
