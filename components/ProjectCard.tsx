@@ -2,13 +2,26 @@ import type { Project } from "@/types";
 
 interface ProjectCardProps {
   project: Project;
+  compact?: boolean;
 }
 
-export default function ProjectCard({ project }: ProjectCardProps) {
+function getProjectInitials(title: string) {
+  return title
+    .split(" ")
+    .filter(Boolean)
+    .slice(0, 2)
+    .map((word) => word[0])
+    .join("")
+    .toUpperCase();
+}
+
+export default function ProjectCard({ project, compact = false }: ProjectCardProps) {
+  const visibleTech = project.techStack.slice(0, compact ? 3 : 4);
+  const hiddenTechCount = project.techStack.length - visibleTech.length;
+
   return (
-    <article className="group flex flex-col overflow-hidden rounded-xl border border-[var(--color-border)] bg-[var(--color-surface)] shadow-sm transition-all hover:shadow-md hover:-translate-y-1">
-      {/* Image Placeholder */}
-      <div className="relative aspect-video w-full bg-[var(--color-cream)] border-b border-[var(--color-border)] overflow-hidden">
+    <article className="group flex h-full flex-col overflow-hidden rounded-xl border border-slate-200 bg-white shadow-sm transition-all duration-300 hover:-translate-y-1 hover:border-slate-300 hover:shadow-xl">
+      <div className="relative aspect-[16/10] overflow-hidden bg-[var(--color-dark)]">
         {project.imageUrl ? (
           /* eslint-disable-next-line @next/next/no-img-element */
           <img
@@ -17,91 +30,104 @@ export default function ProjectCard({ project }: ProjectCardProps) {
             className="h-full w-full object-cover transition-transform duration-500 group-hover:scale-105"
           />
         ) : (
-          <div className="flex h-full w-full items-center justify-center bg-gradient-to-br from-[#f0eee9] to-[#e6e3dd]">
-            <span className="text-sm font-medium text-[var(--color-muted)]">
-              Placeholder Image
+          <div className="flex h-full w-full items-center justify-center bg-[radial-gradient(circle_at_25%_20%,rgba(16,185,129,0.35),transparent_35%),linear-gradient(135deg,#0b1117,#1f2937)]">
+            <span className="text-5xl font-black tracking-tight text-white/90">
+              {getProjectInitials(project.title)}
             </span>
           </div>
         )}
-      </div>
-
-      <div className="flex flex-1 flex-col p-6">
-        {/* Header */}
-        <div className="mb-3 flex items-start justify-between gap-3">
-        <h3 className="text-base font-semibold text-[var(--color-text)] group-hover:text-[var(--color-accent)] transition-colors">
-          {project.title}
-        </h3>
-        <span className="shrink-0 rounded-full border border-[var(--color-border)] px-2.5 py-0.5 text-xs font-medium capitalize text-[var(--color-muted)]">
-          {project.category}
-        </span>
-      </div>
-
-      {/* Description */}
-      <p className="flex-1 text-sm leading-relaxed text-[var(--color-muted)]">
-        {project.description}
-      </p>
-
-      {/* Tech Stack */}
-      <div className="mt-4 flex flex-wrap gap-1.5">
-        {project.techStack.map((tech) => (
-          <span
-            key={tech}
-            className="rounded-md bg-[var(--color-cream)] px-2 py-0.5 text-xs font-medium text-[var(--color-muted)]"
-          >
-            {tech}
+        <div className="absolute inset-x-0 bottom-0 h-20 bg-gradient-to-t from-black/55 to-transparent" />
+        <div className="absolute left-4 top-4 flex flex-wrap gap-2">
+          {project.badge && (
+            <span className="rounded-full bg-white/95 px-3 py-1 text-[11px] font-bold text-slate-900 shadow-sm">
+              {project.badge}
+            </span>
+          )}
+          <span className="rounded-full bg-emerald-400 px-3 py-1 text-[11px] font-black capitalize text-emerald-950 shadow-sm">
+            {project.category}
           </span>
-        ))}
+        </div>
       </div>
 
-      {/* Links */}
-      <div className="mt-5 flex items-center gap-4 border-t border-[var(--color-border)] pt-4">
-        <a
-          href={project.githubUrl}
-          target="_blank"
-          rel="noopener noreferrer"
-          className="flex items-center gap-1.5 text-xs font-medium text-[var(--color-muted)] transition-colors hover:text-[var(--color-text)]"
-          aria-label={`View ${project.title} source code on GitHub`}
-        >
-          <svg
-            xmlns="http://www.w3.org/2000/svg"
-            width="14"
-            height="14"
-            viewBox="0 0 24 24"
-            fill="currentColor"
-            aria-hidden="true"
-          >
-            <path d="M12 0C5.374 0 0 5.373 0 12c0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23A11.509 11.509 0 0 1 12 5.803c1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576C20.566 21.797 24 17.3 24 12c0-6.627-5.373-12-12-12z" />
-          </svg>
-          GitHub
-        </a>
-        {project.demoUrl && (
+      <div className="flex flex-1 flex-col p-5">
+        <div className="mb-3">
+          <h3 className="text-lg font-bold tracking-tight text-slate-950 transition-colors group-hover:text-[var(--color-accent-hover)]">
+            {project.title}
+          </h3>
+          <p className="mt-2 min-h-[3rem] text-sm leading-6 text-slate-600">
+            {project.summary}
+          </p>
+        </div>
+
+        {!compact && (
+          <p className="mb-4 text-sm leading-6 text-slate-500">
+            {project.contribution}
+          </p>
+        )}
+
+        <div className="mt-auto flex flex-wrap gap-2">
+          {visibleTech.map((tech) => (
+            <span
+              key={tech}
+              className="rounded-md border border-slate-200 bg-slate-50 px-2.5 py-1 text-[11px] font-semibold text-slate-600"
+            >
+              {tech}
+            </span>
+          ))}
+          {hiddenTechCount > 0 && (
+            <span className="rounded-md border border-slate-200 bg-slate-50 px-2.5 py-1 text-[11px] font-semibold text-slate-500">
+              +{hiddenTechCount}
+            </span>
+          )}
+        </div>
+
+        <div className="mt-5 flex items-center gap-3 border-t border-slate-100 pt-4">
           <a
-            href={project.demoUrl}
+            href={project.githubUrl}
             target="_blank"
             rel="noopener noreferrer"
-            className="flex items-center gap-1.5 text-xs font-medium text-[var(--color-accent)] transition-opacity hover:opacity-70"
-            aria-label={`View ${project.title} live demo`}
+            className="inline-flex items-center gap-2 rounded-md border border-slate-200 px-3 py-2 text-xs font-bold text-slate-700 transition-colors hover:border-slate-900 hover:text-slate-950"
+            aria-label={`View ${project.title} source code on GitHub`}
           >
             <svg
               xmlns="http://www.w3.org/2000/svg"
               width="14"
               height="14"
               viewBox="0 0 24 24"
-              fill="none"
-              stroke="currentColor"
-              strokeWidth="2"
-              strokeLinecap="round"
-              strokeLinejoin="round"
+              fill="currentColor"
               aria-hidden="true"
             >
-              <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6" />
-              <polyline points="15 3 21 3 21 9" />
-              <line x1="10" y1="14" x2="21" y2="3" />
+              <path d="M12 .5A11.5 11.5 0 0 0 8.36 22.9c.58.1.79-.25.79-.56v-2c-3.22.7-3.9-1.38-3.9-1.38-.53-1.34-1.29-1.7-1.29-1.7-1.05-.72.08-.7.08-.7 1.16.08 1.78 1.2 1.78 1.2 1.03 1.77 2.7 1.26 3.36.96.1-.75.4-1.26.73-1.55-2.57-.3-5.27-1.29-5.27-5.72 0-1.27.45-2.3 1.2-3.11-.12-.3-.52-1.47.11-3.06 0 0 .98-.31 3.19 1.19A11 11 0 0 1 12 6.08c.98 0 1.97.13 2.9.39 2.2-1.5 3.18-1.19 3.18-1.19.63 1.59.23 2.76.11 3.06.75.81 1.2 1.84 1.2 3.11 0 4.45-2.71 5.42-5.29 5.71.42.36.79 1.06.79 2.15v3.03c0 .31.21.67.8.56A11.5 11.5 0 0 0 12 .5Z" />
             </svg>
-            Live Demo
+            Code
           </a>
-        )}
-      </div>
+          {project.demoUrl && (
+            <a
+              href={project.demoUrl}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="inline-flex items-center gap-2 rounded-md bg-slate-950 px-3 py-2 text-xs font-bold text-white transition-colors hover:bg-[var(--color-accent-hover)]"
+              aria-label={`View ${project.title} live demo`}
+            >
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                width="14"
+                height="14"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                strokeWidth="2"
+                strokeLinecap="round"
+                strokeLinejoin="round"
+                aria-hidden="true"
+              >
+                <path d="M7 17 17 7" />
+                <path d="M7 7h10v10" />
+              </svg>
+              Demo
+            </a>
+          )}
+        </div>
       </div>
     </article>
   );

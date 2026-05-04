@@ -5,22 +5,26 @@ import { projects } from "@/lib/data";
 export const metadata: Metadata = {
   title: "Projects",
   description:
-    "Browse Alex Chen's portfolio of full-stack, frontend, and backend projects built with React, Next.js, Node.js, and more.",
+    "Browse Detnarin Chaiaksorn's portfolio of web, AI, mobile, game, and full-stack projects.",
   openGraph: {
-    title: "Projects | Alex Chen",
-    description: "Browse Alex Chen's portfolio of web development projects.",
+    title: "Projects | Detnarin Chaiaksorn",
+    description:
+      "Browse Detnarin Chaiaksorn's portfolio of practical software projects.",
   },
 };
 
 export default function ProjectsPage() {
   return (
-    <div className="mx-auto max-w-5xl px-6 py-20">
-      <header className="mb-10">
-        <h1 className="text-3xl font-bold tracking-tight text-[var(--color-text)]">
+    <div className="mx-auto max-w-6xl px-6 py-20">
+      <header className="mb-10 max-w-3xl">
+        <p className="mb-3 text-xs font-bold uppercase tracking-[0.18em] text-[var(--color-accent-hover)]">
+          Project archive
+        </p>
+        <h1 className="text-4xl font-black tracking-tight text-[var(--color-text)] sm:text-5xl">
           Projects
         </h1>
-        <p className="mt-2 text-base text-[var(--color-muted)]">
-          A collection of things I&apos;ve built — filter by category.
+        <p className="mt-4 text-base leading-7 text-[var(--color-muted)]">
+          A focused collection of web apps, AI work, mobile interfaces, and game projects. Filter by category to see how each build fits the stack.
         </p>
       </header>
 
