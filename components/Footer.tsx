@@ -14,7 +14,7 @@ export default function Footer() {
               href="/"
               className="text-base font-semibold tracking-tight text-white hover:opacity-70 transition-opacity"
             >
-              {personalInfo.name.split(" ")[0]}<span className="text-[var(--color-accent)]">.</span>
+              {personalInfo.name}<span className="text-[var(--color-accent)]">.</span>
             </Link>
             <p className="mt-1 text-sm text-slate-400">
               {personalInfo.role}

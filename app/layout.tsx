@@ -16,20 +16,20 @@ export const metadata: Metadata = {
     template: "%s | Detnarin Chaiaksorn",
   },
   description:
-    "Computer Science student & Full-Stack Developer specializing in React, Next.js, Node.js, and Python. Interested in IoT, hardware systems, and technology innovations.",
+    "Full-Stack Developer specializing in React, Next.js, Node.js, Python, and practical AI-assisted product work.",
   openGraph: {
     type: "website",
     locale: "en_US",
     siteName: "Detnarin Chaiaksorn Portfolio",
     title: "Detnarin Chaiaksorn — Full-Stack Developer",
     description:
-      "Computer Science student & Full-Stack Developer specializing in React, Next.js, Node.js, and Python.",
+      "Full-Stack Developer specializing in React, Next.js, Node.js, Python, and practical AI-assisted product work.",
   },
   twitter: {
     card: "summary_large_image",
     title: "Detnarin Chaiaksorn — Full-Stack Developer",
     description:
-      "Computer Science student & Full-Stack Developer. React, Next.js, Python, and more.",
+      "Full-Stack Developer building practical web, AI, mobile, and game projects.",
   },
   robots: {
     index: true,

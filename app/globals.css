@@ -2,13 +2,17 @@
 
 /* ─── Design Tokens ─── */
 :root {
-  --color-cream: #f1f5f9;
+  --color-cream: #f6f8fb;
   --color-surface: #ffffff;
   --color-border: #e2e8f0;
   --color-text: #0f172a;
   --color-muted: #64748b;
-  --color-accent: #16a34a;
-  --color-accent-light: #dcfce7;
+  --color-accent: #10b981;
+  --color-accent-hover: #059669;
+  --color-accent-light: #d1fae5;
+  --color-dark: #0b1117;
+  --color-dark-soft: #111827;
+  --color-dark-muted: #94a3b8;
   --font-sans: "Inter", system-ui, -apple-system, sans-serif;
 }
 
@@ -38,6 +42,11 @@ body {
   line-height: 1.6;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+}
+
+::selection {
+  background: var(--color-accent-light);
+  color: var(--color-text);
 }
 
 /* ─── Typography ─── */

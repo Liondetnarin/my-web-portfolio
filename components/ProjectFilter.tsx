@@ -8,9 +8,11 @@ type FilterOption = "all" | ProjectCategory;
 
 const FILTERS: { label: string; value: FilterOption }[] = [
   { label: "All", value: "all" },
-  { label: "Frontend", value: "frontend" },
-  { label: "Backend", value: "backend" },
+  { label: "Web", value: "web" },
+  { label: "AI", value: "ai" },
   { label: "Full-Stack", value: "fullstack" },
+  { label: "Mobile", value: "mobile" },
+  { label: "Game", value: "game" },
 ];
 
 interface ProjectFilterProps {
@@ -26,29 +28,42 @@ export default function ProjectFilter({ projects }: ProjectFilterProps) {
   return (
     <div>
       {/* Filter Buttons */}
-      <div
-        role="group"
-        aria-label="Filter projects by category"
-        className="mb-8 flex flex-wrap gap-2"
-      >
-        {FILTERS.map((f) => (
-          <button
-            key={f.value}
-            id={`filter-${f.value}`}
-            onClick={() => setActive(f.value)}
-            className={`rounded-full border px-4 py-1.5 text-sm font-medium transition-all ${
-              active === f.value
-                ? "border-[var(--color-accent)] bg-[var(--color-accent)] text-white"
-                : "border-[var(--color-border)] bg-[var(--color-surface)] text-[var(--color-muted)] hover:border-[var(--color-accent)] hover:text-[var(--color-accent)]"
-            }`}
-          >
-            {f.label}
-          </button>
-        ))}
+      <div className="mb-8 rounded-xl border border-slate-200 bg-white p-2 shadow-sm">
+        <div
+          role="group"
+          aria-label="Filter projects by category"
+          className="flex flex-wrap gap-2"
+        >
+          {FILTERS.map((filter) => {
+            const count =
+              filter.value === "all"
+                ? projects.length
+                : projects.filter((project) => project.category === filter.value).length;
+
+            return (
+              <button
+                key={filter.value}
+                id={`filter-${filter.value}`}
+                type="button"
+                onClick={() => setActive(filter.value)}
+                className={`rounded-lg px-4 py-2 text-sm font-bold transition-all ${
+                  active === filter.value
+                    ? "bg-slate-950 text-white shadow-sm"
+                    : "text-slate-500 hover:bg-slate-100 hover:text-slate-950"
+                }`}
+              >
+                {filter.label}
+                <span className={active === filter.value ? "ml-2 text-white/70" : "ml-2 text-slate-400"}>
+                  {count}
+                </span>
+              </button>
+            );
+          })}
+        </div>
       </div>
 
       {/* Grid */}
-      <div className="grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
+      <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
         {filtered.map((project) => (
           <ProjectCard key={project.id} project={project} />
         ))}
