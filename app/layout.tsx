@@ -1,8 +1,12 @@
-import type { Metadata } from "next";
+import type { Metadata, Viewport } from "next";
 import { Inter } from "next/font/google";
 import "./globals.css";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
+import NavbarScrollEnhancer from "@/components/NavbarScrollEnhancer";
+import ScrollProgress from "@/components/ScrollProgress";
+import { personalInfo } from "@/lib/data";
+import { DEFAULT_OG_DESCRIPTION, SITE_NAME, SITE_URL } from "@/lib/site";
 
 const inter = Inter({
   subsets: ["latin"],
@@ -11,30 +15,44 @@ const inter = Inter({
 });
 
 export const metadata: Metadata = {
+  metadataBase: new URL(SITE_URL),
   title: {
-    default: "Detnarin Chaiaksorn — Full-Stack Developer",
-    template: "%s | Detnarin Chaiaksorn",
+    default: `${personalInfo.name} — Software Developer`,
+    template: `%s | ${personalInfo.name}`,
   },
-  description:
-    "Full-Stack Developer specializing in React, Next.js, Node.js, Python, and practical AI-assisted product work.",
+  description: DEFAULT_OG_DESCRIPTION,
   openGraph: {
     type: "website",
     locale: "en_US",
-    siteName: "Detnarin Chaiaksorn Portfolio",
-    title: "Detnarin Chaiaksorn — Full-Stack Developer",
-    description:
-      "Full-Stack Developer specializing in React, Next.js, Node.js, Python, and practical AI-assisted product work.",
+    url: SITE_URL,
+    siteName: SITE_NAME,
+    title: `${personalInfo.name} — Software Developer`,
+    description: DEFAULT_OG_DESCRIPTION,
+    images: [
+      {
+        url: "/opengraph-image",
+        width: 1200,
+        height: 630,
+        alt: `${personalInfo.name} — Software Developer Portfolio`,
+      },
+    ],
   },
   twitter: {
     card: "summary_large_image",
-    title: "Detnarin Chaiaksorn — Full-Stack Developer",
-    description:
-      "Full-Stack Developer building practical web, AI, mobile, and game projects.",
+    title: `${personalInfo.name} — Software Developer`,
+    description: DEFAULT_OG_DESCRIPTION,
+    images: ["/opengraph-image"],
   },
   robots: {
     index: true,
     follow: true,
   },
+};
+
+export const viewport: Viewport = {
+  width: "device-width",
+  initialScale: 1,
+  viewportFit: "cover",
 };
 
 export default function RootLayout({
@@ -45,8 +63,10 @@ export default function RootLayout({
   return (
     <html lang="en" className={`${inter.variable} h-full`}>
       <body className="flex min-h-full flex-col antialiased">
+        <ScrollProgress />
+        <NavbarScrollEnhancer />
         <Navbar />
-        <main id="main-content" className="flex-1">
+        <main id="main-content" className="min-w-0 flex-1">
           {children}
         </main>
         <Footer />

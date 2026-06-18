@@ -1,31 +1,86 @@
-import type { Experience, PersonalInfo, Project, SkillCategory } from "@/types";
+import type {
+  Education,
+  Experience,
+  ExperienceAward,
+  HeroStat,
+  Language,
+  PersonalInfo,
+  Project,
+  SkillCategory,
+} from "@/types";
 
 export const personalInfo: PersonalInfo = {
   name: "Detnarin Chaiaksorn",
-  role: "Full-Stack Developer",
-  bio: "Frontend, backend, and databases. Focused on delivering functional systems with real-world workflows, and continuously improving backend and system design capabilities.",
+  role: "Software Developer",
+  heroLead:
+    "Internship-ready developer with hands-on experience in AI voice assistants, vector databases, and production web apps.",
+  heroHighlight: "FORVIZ Intern · UTCC Computer Science · GPAX 3.44 · May 2026",
+  bio: "I turn requirements into working software - from Python backends and CMS sites to user-tested product interfaces.",
   email: "detnarin.cha@gmail.com",
   github: "https://github.com/Liondetnarin",
   linkedin: "https://linkedin.com/in/detnarin-chaiaksorn-47b154403",
+  focus:
+    "AI voice systems, vector databases, CMS-powered web apps, and interactive software prototypes.",
+  resumeUrl: "/resume/detnarin-chaiaksorn-resume.pdf",
 };
 
+export const heroStats: HeroStat[] = [
+  // { label: "Projects", value: "6+" },
+  // { label: "GPAX", value: "3.44" },
+  // { label: "Graduation", value: "May 2026" },
+  // { label: "Languages", value: "TH / EN" },
+];
+
 export const projects: Project[] = [
-  // {
-  //   id: "1",
-  //   title: "AI Voice Assistant",
-  //   summary: "Voice-driven assistant built across backend, database, and frontend workflows.",
-  //   description:
-  //     "Built an AI voice assistant during internship at FORVIZ. Developed backend features, designed database, and tested voice pipelines using Google ADK and Python. Implemented frontend UI and conducted real-world testing with user feedback.",
-  //   contribution:
-  //     "Implemented backend features, designed database flows, built UI from prototypes, and tested voice pipelines with real users.",
-  //   techStack: ["Python", "Google ADK"],
-  //   githubUrl: "https://github.com/Liondetnarin",
-  //   category: "ai",
-  //   featured: true,
-  //   badge: "Internship Project",
-  // },
+  {
+    id: "1",
+    title: "WenWorks",
+    summary: "CMS-powered multilingual marketing website built with Next.js.",
+    description:
+      "High-performance marketing website with multi-language support, SEO optimization, and CMS integration using Next.js, TypeScript, Tailwind CSS, and Sanity. Deployed on Vercel.",
+    contribution:
+      "Delivered responsive pages, CMS content structure, multilingual routing, and production-ready architecture.",
+    techStack: ["Next.js", "TypeScript", "Tailwind CSS", "Sanity"],
+    imageUrl: "/images/img-ww.webp",
+    githubUrl: "https://github.com/Liondetnarin",
+    demoUrl: "https://www.wenworks.co/th",
+    category: "web",
+    featured: true,
+    badge: "Production Website",
+  },
   {
     id: "2",
+    title: "Dino Marcom",
+    summary: "CMS-driven marketing landing page with dynamic content management.",
+    description:
+      "Marketing landing page built with Next.js, TypeScript, Tailwind CSS, and Sanity CMS. Focused on SEO, clean UI, and content workflows for a production marketing team.",
+    contribution:
+      "Built responsive layouts, CMS schema, and deployment pipeline with Vercel.",
+    techStack: ["Next.js", "TypeScript", "Tailwind CSS", "Sanity"],
+    imageUrl: "/images/img-dino-marcom.webp",
+    githubUrl: "https://github.com/Liondetnarin",
+    demoUrl: "https://dinomarcom.vercel.app/th",
+    category: "web",
+    featured: true,
+    badge: "CMS Landing Page",
+  },
+  {
+    id: "3",
+    title: "TF-Superbike",
+    summary: "Web landing page for a high-performance motorcycle business.",
+    description:
+      "Web landing page for a high-performance motorcycle business. Built with Next.js and Tailwind CSS, featuring responsive design and performance optimizations.",
+    contribution:
+      "Created responsive design, performance optimizations, and presentation-ready web experience with Next.js and Tailwind CSS.",
+    techStack: ["Next.js", "Tailwind CSS", "TypeScript"],
+    imageUrl: "/images/img-tf.webp",
+    githubUrl: "https://github.com/Liondetnarin",
+    demoUrl: "https://tf-superbike.vercel.app/",
+    category: "fullstack",
+    badge: "Production Website",
+  },
+  {
+    id: "4",
     title: "Coding is Magic",
     summary: "Award-winning 2D game that teaches Python through puzzle play.",
     description:
@@ -35,55 +90,24 @@ export const projects: Project[] = [
     techStack: ["Unity", "C#", "2D Game"],
     imageUrl: "/images/img-coding-is-magic.webp",
     githubUrl: "https://github.com/Tanakorn-C/Coding-is-Magic-RPG",
-    demoUrl: "https://play.unity.com/en/games/a3a8b201-7355-4eb9-9879-6b9b04a3737b/webgl",
+    demoUrl:
+      "https://play.unity.com/en/games/a3a8b201-7355-4eb9-9879-6b9b04a3737b/webgl",
     category: "game",
     featured: true,
     badge: "2nd Place Award",
-  },
-  {
-    id: "3",
-    title: "WenWorks",
-    summary: "CMS-powered multilingual marketing website built with Next.js.",
-    description:
-      "Developed a high-performance marketing website with multi-language support and CMS integration using Next.js, Tailwind, and Sanity. Focused on performance and clean UI.",
-    contribution:
-      "Delivered responsive pages, CMS content structure, multilingual routing, and performance-focused UI details.",
-    techStack: ["Next.js", "Tailwind CSS","TypeScript", "Sanity"],
-    imageUrl: "/images/img-ww.webp",
-    githubUrl: "https://github.com/Liondetnarin",
-    demoUrl: "https://www.wenworks.co/th",
-    category: "web",
-    featured: true,
-    badge: "Production Website",
-  },
-  {
-    id: "4",
-    title: "TF-Superbike",
-    summary: "Web landing page for a high-performance motorcycle business.",
-    description:
-      "Web landing page for a high-performance motorcycle business. Built with Next.js and Tailwind CSS, featuring responsive design and performance optimizations.",
-    contribution:
-      "Created responsive design, performance optimizations, and presentation-ready web experience with Next.js and Tailwind CSS.",
-    techStack: ["Next.js", "Tailwind CSS","TypeScript"],
-    imageUrl: "/images/img-tf.webp",
-    githubUrl: "https://github.com/Liondetnarin",
-    demoUrl: "https://tf-superbike.vercel.app/",
-    category: "fullstack",
-    featured: true,
-    badge: "Production Website",
   },
   {
     id: "5",
     title: "UTCC PHOBIA",
     summary: "3D horror game prototype built with Unreal Engine 5.",
     description:
-      "3D horror game built with Unreal Engine 5, featuring custom environments, gameplay mechanics, and interactive storytelling.",
+      "3D horror game built with Unreal Engine 5, featuring custom environments based on the UTCC campus, gameplay mechanics, and interactive storytelling.",
     contribution:
       "Created interactive gameplay, environments, and presentation-ready horror experience in Unreal Engine 5.",
     techStack: ["Unreal Engine 5", "Blender", "3D"],
     imageUrl: "/images/img-utcc.webp",
     githubUrl: "https://github.com/Liondetnarin",
-    demoUrl: "https://youtu.be/dMLk6AdQNng",
+    youtubeUrl: "https://youtu.be/dMLk6AdQNng",
     category: "game",
     badge: "3D Game",
   },
@@ -92,13 +116,14 @@ export const projects: Project[] = [
     title: "UniFood",
     summary: "Restaurant review platform with rankings, filtering, and user ratings.",
     description:
-      "Full-stack restaurant review platform with filtering, ranking, and user ratings. Built using React, Spring Boot, and MongoDB.",
+      "Full-stack restaurant review platform with category filters, popularity ranking, and user ratings. Built using React, Vite, Spring Boot, and MongoDB.",
     contribution:
       "Built full-stack features across React UI, Spring Boot APIs, MongoDB data, and review filtering flows.",
-    techStack: ["React", "Spring Boot", "MongoDB", "Java"],
+    techStack: ["React", "Vite", "Spring Boot", "MongoDB"],
     imageUrl: "/images/img-unifood.webp",
     githubUrl: "https://github.com/Liondetnarin",
-    demoUrl: "https://canva.link/qpttc7ehv75oau9",
+    //demoUrl: "https://unifood.vercel.app/",
+    canvaUrl: "https://canva.link/qpttc7ehv75oau9",
     category: "fullstack",
     badge: "Full-Stack Platform",
   },
@@ -107,19 +132,27 @@ export const projects: Project[] = [
 export const skillCategories: SkillCategory[] = [
   {
     name: "Frontend",
-    skills: ["HTML", "CSS", "JavaScript", "TypeScript", "React", "Next.js", "Tailwind CSS"],
+    skills: ["HTML", "CSS", "JavaScript", "React", "Next.js", "Tailwind CSS"],
   },
   {
     name: "Backend",
-    skills: ["Node.js", "Python", "Java", "C#"],
+    skills: ["Node.js", "Spring Boot", "Java", "Python"],
   },
   {
     name: "Database",
-    skills: ["MongoDB", "Supabase", "MySQL"],
+    skills: ["MySQL", "MongoDB", "Supabase"],
   },
   {
-    name: "Tools",
-    skills: ["Git", "Figma", "Docker"],
+    name: "RESTful API",
+    skills: ["Next.js API Routes", "Node.js", "Spring Boot"],
+  },
+  {
+    name: "AI & Machine Learning",
+    skills: ["AI Agents", "Prompt Engineering", "Machine Learning"],
+  },
+  {
+    name: "Deployment & Tools",
+    skills: ["Vercel", "CI/CD", "Git", "Docker", "Figma"],
   },
 ];
 
@@ -127,8 +160,59 @@ export const experiences: Experience[] = [
   {
     company: "FORVIZ Company Limited",
     role: "Software Developer Intern",
-    period: "January 2026 – May 2026",
+    period: "January 2026 – April 2026",
     description:
-      "Worked on an AI Voice Assistant system across frontend and backend. Designed database, implemented features, and tested voice systems using Google ADK. Built UI from prototypes and participated in real-world testing to improve system performance.",
+      "Contributed to an AI Voice Assistant product across Python backend, vector database architecture, and frontend implementation.",
+    highlights: [
+      "Developed Python backend features for an AI Voice Assistant.",
+      "Implemented vector database architecture for project-specific knowledge.",
+      "Evaluated real-time voice interaction using Google ADK and LiveKit.",
+      "Built frontend interfaces from Figma prototypes.",
+    ],
+    images: [
+      {
+        src: "/images/img-forviz-intern.webp",
+        alt: "Detnarin working with the FORVIZ team during the internship",
+        caption: "Internship at FORVIZ",
+      },
+      {
+        src: "/images/img-forviz-office.webp",
+        alt: "Office environment at FORVIZ Company Limited",
+        caption: "Demo day with FORVIZ teams",
+      },
+    ],
+  },
+];
+
+export const experienceAward: ExperienceAward = {
+  title: "Award-winning interactive project",
+  description:
+    "Coding is Magic earned 2nd place in a 2026 university showcase for turning Python learning into a playable Unity experience.",
+  images: [
+    {
+      src: "/images/img-award-coding-is-magic.webp",
+      alt: "Detnarin receiving the 2nd place award for Coding is Magic at UTCC showcase 2026",
+      caption: "2nd place - UTCC University Showcase 2026",
+    },
+  ],
+};
+
+export const education: Education[] = [
+  {
+    institution: "University of the Thai Chamber of Commerce (UTCC)",
+    degree: "Bachelor of Science in Computer Science",
+    period: "August 2022 – May 2026",
+    gpa: "3.44",
+    activities: [
+      "Awarded 2nd place at university showcase 2026 for final project (Coding is Magic).",
+    ],
+  },
+];
+
+export const languages: Language[] = [
+  { name: "Thai", level: "Native" },
+  {
+    name: "English",
+    level: "B2 Intermediate — technical docs & workplace communication",
   },
 ];
