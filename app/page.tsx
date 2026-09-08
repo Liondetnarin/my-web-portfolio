@@ -173,14 +173,14 @@ export default function HomePage() {
   return (
     <>
       {/* Section Hero - image first on mobile, text left on desktop */}
-      <section className="relative border-b border-slate-200 bg-[radial-gradient(circle_at_75%_20%,rgba(16,185,129,0.12),transparent_28%),linear-gradient(180deg,#ffffff_0%,#f6f8fb_100%)]">
+      <section className="relative border-b border-[var(--color-border)] bg-[radial-gradient(circle_at_75%_20%,rgba(16,185,129,0.12),transparent_28%),linear-gradient(180deg,#ffffff_0%,#f6f8fb_100%)] dark:bg-[radial-gradient(circle_at_75%_20%,rgba(52,211,153,0.10),transparent_28%),linear-gradient(180deg,#0f172a_0%,#070b12_100%)]">
         <div className="pointer-events-none absolute inset-0 overflow-hidden bg-[linear-gradient(to_right,rgba(148,163,184,0.06)_1px,transparent_1px),linear-gradient(to_bottom,rgba(148,163,184,0.06)_1px,transparent_1px)] bg-[size:3rem_3rem] [mask-image:radial-gradient(ellipse_at_center,black_30%,transparent_80%)]" aria-hidden="true" />
         <div className="relative mx-auto grid w-full max-w-6xl min-w-0 gap-8 px-4 py-10 sm:gap-10 sm:px-6 sm:py-14 lg:min-h-[calc(100vh-4rem)] lg:grid-cols-[1.05fr_0.95fr] lg:items-center lg:gap-12 lg:py-20">
           {/* Profile image - order 1 on mobile, right column on desktop */}
           <div className="hero-animate-float hero-delay-1 relative order-1 mx-auto w-full min-w-0 max-w-[260px] sm:max-w-xs lg:order-2 lg:mx-0 lg:max-w-md lg:justify-self-end lg:transition-transform lg:hover:scale-[1.02]">
-            <div className="absolute -right-4 top-6 h-28 w-28 rounded-full bg-emerald-200/50 blur-3xl sm:-right-8 sm:top-8 sm:h-40 sm:w-40" />
-            <div className="relative overflow-hidden rounded-[1.5rem] border border-slate-200 bg-white p-2 shadow-2xl sm:rounded-[2rem] sm:p-3">
-              <div className="relative aspect-[4/5] overflow-hidden rounded-[1.25rem] bg-slate-100 sm:rounded-[1.5rem]">
+            <div className="absolute -right-4 top-6 h-28 w-28 rounded-full bg-emerald-200/50 blur-3xl dark:bg-emerald-500/20 sm:-right-8 sm:top-8 sm:h-40 sm:w-40" />
+            <div className="relative overflow-hidden rounded-[1.5rem] border border-[var(--color-border)] bg-[var(--color-surface)] p-2 shadow-2xl sm:rounded-[2rem] sm:p-3">
+              <div className="relative aspect-[4/5] overflow-hidden rounded-[1.25rem] bg-[var(--color-surface-muted)] sm:rounded-[1.5rem]">
                 {/* eslint-disable-next-line @next/next/no-img-element */}
                 <img
                   src="/images/img-profile.webp"
@@ -201,22 +201,22 @@ export default function HomePage() {
 
           {/* Text content - centered on mobile, left column on desktop */}
           <div className="order-2 min-w-0 w-full text-center lg:order-1 lg:text-left">
-            <p className="hero-animate hero-delay-2 mb-4 inline-flex rounded-full border border-emerald-200 bg-emerald-50 px-3 py-1.5 text-[10px] font-black uppercase tracking-[0.16em] text-emerald-700 sm:mb-5 sm:px-4 sm:py-2 sm:text-xs sm:tracking-[0.18em]">
+            <p className="hero-animate hero-delay-2 mb-4 inline-flex rounded-full border border-emerald-200 bg-emerald-50 px-3 py-1.5 text-[10px] font-black uppercase tracking-[0.16em] text-emerald-700 dark:border-emerald-400/30 dark:bg-emerald-400/10 dark:text-emerald-300 sm:mb-5 sm:px-4 sm:py-2 sm:text-xs sm:tracking-[0.18em]">
               {personalInfo.role}
             </p>
-            <p className="hero-animate hero-delay-2 mb-3 text-sm font-bold leading-6 text-emerald-600 sm:mb-4 sm:text-base">
+            <p className="hero-animate hero-delay-2 mb-3 text-sm font-bold leading-6 text-emerald-600 dark:text-emerald-300 sm:mb-4 sm:text-base">
               {personalInfo.heroHighlight}
             </p>
-            <h1 className="hero-animate hero-delay-3 mx-auto max-w-3xl text-3xl font-black tracking-tight text-slate-950 sm:text-5xl lg:mx-0 lg:text-6xl xl:text-7xl">
+            <h1 className="hero-animate hero-delay-3 mx-auto max-w-3xl text-3xl font-black tracking-tight text-[var(--color-text)] sm:text-5xl lg:mx-0 lg:text-6xl xl:text-7xl">
               Hi, I&apos;m{" "}
-              <span className="bg-gradient-to-r from-emerald-500 to-emerald-600 bg-clip-text text-transparent">
+              <span className="text-emerald-600 dark:text-emerald-300">
                 Detnarin.
               </span>
             </h1>
-            <p className="hero-animate hero-delay-4 mx-auto mt-4 max-w-2xl text-base leading-7 text-slate-700 sm:mt-6 sm:text-lg sm:leading-8 lg:mx-0">
+            <p className="hero-animate hero-delay-4 mx-auto mt-4 max-w-2xl text-base leading-7 text-[var(--color-subtle)] sm:mt-6 sm:text-lg sm:leading-8 lg:mx-0">
               {personalInfo.heroLead}
             </p>
-            <p className="hero-animate hero-delay-4 mx-auto mt-3 max-w-2xl text-sm leading-7 text-slate-500 sm:text-base lg:mx-0">
+            <p className="hero-animate hero-delay-4 mx-auto mt-3 max-w-2xl text-sm leading-7 text-[var(--color-muted)] sm:text-base lg:mx-0">
               {personalInfo.bio}
             </p>
 
@@ -224,10 +224,10 @@ export default function HomePage() {
               {heroStats.map((stat) => (
                 <div
                   key={stat.label}
-                  className="card-hover rounded-xl border border-slate-200 bg-white/90 px-3 py-2.5 shadow-sm backdrop-blur-sm sm:px-4 sm:py-3"
+                  className="card-hover rounded-xl border border-[var(--color-border)] bg-[var(--color-surface)]/90 px-3 py-2.5 shadow-sm backdrop-blur-sm sm:px-4 sm:py-3"
                 >
-                  <p className="text-lg font-black text-slate-950 sm:text-xl">{stat.value}</p>
-                  <p className="mt-0.5 text-[10px] font-bold uppercase tracking-[0.1em] text-slate-500 sm:text-[11px] sm:tracking-[0.12em]">
+                  <p className="text-lg font-black text-[var(--color-text)] sm:text-xl">{stat.value}</p>
+                  <p className="mt-0.5 text-[10px] font-bold uppercase tracking-[0.1em] text-[var(--color-muted)] sm:text-[11px] sm:tracking-[0.12em]">
                     {stat.label}
                   </p>
                 </div>
@@ -238,9 +238,9 @@ export default function HomePage() {
               {heroTechTags.map((tech) => (
                 <span
                   key={tech.name}
-                  className="inline-flex items-center gap-1.5 rounded-lg border border-slate-200 bg-white px-2.5 py-1.5 text-xs font-bold text-slate-700 shadow-sm sm:gap-2 sm:px-3 sm:py-2 sm:text-sm lg:transition-transform lg:hover:scale-[1.09]"
+                  className="inline-flex items-center gap-1.5 rounded-lg border border-[var(--color-border)] bg-[var(--color-surface)] px-2.5 py-1.5 text-xs font-bold text-[var(--color-subtle)] shadow-sm sm:gap-2 sm:px-3 sm:py-2 sm:text-sm lg:transition-transform lg:hover:scale-[1.09]"
                 >
-                  <span className="flex h-5 w-5 items-center justify-center rounded-md bg-slate-50 p-0.5 sm:h-6 sm:w-6 sm:p-1">
+                  <span className="flex h-5 w-5 items-center justify-center rounded-md bg-[var(--color-surface-soft)] p-0.5 sm:h-6 sm:w-6 sm:p-1">
                     {/* eslint-disable-next-line @next/next/no-img-element */}
                     <img src={tech.icon} alt="" className="h-full w-full object-contain" aria-hidden="true" />
                   </span>
@@ -253,7 +253,7 @@ export default function HomePage() {
               <Link
                 id="cta-view-work"
                 href="#projects"
-                className="inline-flex w-full items-center justify-center gap-2 rounded-md border border-slate-950 bg-slate-950 px-6 py-3 text-sm font-black text-white shadow-sm transition-colors hover:border-emerald-500 hover:bg-emerald-400 hover:text-slate-950 sm:w-auto"
+                className="inline-flex w-full items-center justify-center gap-2 rounded-md border border-slate-950 bg-slate-950 px-6 py-3 text-sm font-black text-white shadow-sm transition-colors hover:border-emerald-500 hover:bg-emerald-400 hover:text-emerald-950 sm:w-auto"
               >
                 View Projects
                 <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
@@ -266,7 +266,7 @@ export default function HomePage() {
                   id="cta-resume"
                   href={personalInfo.resumeUrl}
                   download
-                  className="inline-flex w-full items-center justify-center gap-2 rounded-md border border-emerald-500 bg-emerald-400 px-6 py-3 text-sm font-black text-slate-950 shadow-sm transition-colors hover:border-slate-950 hover:bg-slate-950 hover:text-white sm:w-auto"
+                  className="inline-flex w-full items-center justify-center gap-2 rounded-md border border-emerald-500 bg-emerald-400 px-6 py-3 text-sm font-black text-emerald-950 shadow-sm transition-colors hover:border-slate-950 hover:bg-slate-950 hover:text-white sm:w-auto"
                 >
                   Download Resume
                 </a>
@@ -274,7 +274,7 @@ export default function HomePage() {
               <a
                 id="cta-contact"
                 href="#contact"
-                className="inline-flex w-full items-center justify-center rounded-md border border-slate-300 bg-white px-6 py-3 text-sm font-black text-slate-950 shadow-sm transition-colors hover:border-slate-950 hover:bg-slate-950 hover:text-white sm:w-auto"
+                className="inline-flex w-full items-center justify-center rounded-md border border-[var(--color-border-strong)] bg-[var(--color-surface)] px-6 py-3 text-sm font-black text-[var(--color-text)] shadow-sm transition-colors hover:border-emerald-500 hover:bg-emerald-400 hover:text-emerald-950 sm:w-auto"
               >
                 Contact
               </a>
@@ -284,7 +284,7 @@ export default function HomePage() {
       </section>
 
       {/* Section Projects */}
-      <section id="projects" className="relative border-b border-slate-200 bg-[var(--color-cream)]">
+      <section id="projects" className="relative border-b border-[var(--color-border)] bg-[var(--color-cream)]">
         <div className="mx-auto max-w-6xl px-4 py-12 sm:px-6 sm:py-16 lg:py-20">
           <RevealOnScroll>
             <ProjectList projects={projects} />
@@ -293,17 +293,17 @@ export default function HomePage() {
       </section>
 
       {/* Section Skills */}
-      <section id="skills" className="relative border-b border-slate-200 bg-white">
+      <section id="skills" className="relative border-b border-[var(--color-border)] bg-[var(--color-surface)]">
         <div className="pointer-events-none absolute inset-x-0 top-0 h-px bg-gradient-to-r from-transparent via-emerald-300/40 to-transparent" aria-hidden="true" />
         <div className="mx-auto max-w-6xl px-4 py-12 sm:px-6 sm:py-16 lg:py-24">
           <RevealOnScroll className="mb-8 max-w-2xl sm:mb-12">
             <p className="section-label mb-3 text-xs font-black uppercase tracking-[0.18em] text-[var(--color-accent-hover)]">
               Skills and tools
             </p>
-            <h2 className="text-3xl font-black tracking-tight text-slate-950 sm:text-4xl">
+            <h2 className="text-3xl font-black tracking-tight text-[var(--color-text)] sm:text-4xl">
               The stack behind the work.
             </h2>
-            <p className="mt-3 text-sm leading-7 text-slate-500 sm:mt-4 sm:text-base">
+            <p className="mt-3 text-sm leading-7 text-[var(--color-muted)] sm:mt-4 sm:text-base">
               Frontend to backend, databases, REST APIs, AI integration, and deployment workflows.
             </p>
           </RevealOnScroll>
@@ -311,14 +311,14 @@ export default function HomePage() {
           <div className="grid gap-4 sm:gap-5 md:grid-cols-2 lg:grid-cols-3">
             {skillCategories.map((category, index) => (
               <RevealOnScroll key={category.name} delay={index * 90}>
-                <section className="card-hover h-full rounded-2xl border border-slate-200 bg-slate-50/60 p-4 sm:p-5">
-                <h3 className="mb-4 text-xs font-black uppercase tracking-[0.16em] text-slate-700 sm:mb-5 sm:text-sm">
+                <section className="card-hover h-full rounded-2xl border border-[var(--color-border)] bg-[var(--color-surface-soft)] p-4 sm:p-5">
+                <h3 className="mb-4 text-xs font-black uppercase tracking-[0.16em] text-[var(--color-subtle)] sm:mb-5 sm:text-sm">
                   {category.name}
                 </h3>
                 <div className="grid grid-cols-3 gap-2 sm:gap-3">
                   {category.skills.map((skill) => (
-                    <div key={skill} className="rounded-xl border border-slate-200 bg-white p-2 shadow-sm transition-colors hover:border-emerald-200 hover:bg-emerald-50/30 sm:p-3 lg:transition-transform lg:hover:scale-[1.06]">
-                      <div className="mx-auto flex h-9 w-9 items-center justify-center rounded-lg bg-slate-50 p-1.5 sm:h-11 sm:w-11 sm:p-2">
+                    <div key={skill} className="rounded-xl border border-[var(--color-border)] bg-[var(--color-surface)] p-2 shadow-sm transition-colors hover:border-emerald-400/50 hover:bg-[var(--color-accent-light)] sm:p-3 lg:transition-transform lg:hover:scale-[1.06]">
+                      <div className="mx-auto flex h-9 w-9 items-center justify-center rounded-lg bg-[var(--color-surface-soft)] p-1.5 sm:h-11 sm:w-11 sm:p-2">
                         {/* eslint-disable-next-line @next/next/no-img-element */}
                         <img
                           src={getSkillIcon(skill)}
@@ -328,7 +328,7 @@ export default function HomePage() {
                           className="h-full w-full object-contain"
                         />
                       </div>
-                      <p className="mt-3 text-center text-[10px] font-bold leading-tight text-slate-600">
+                      <p className="mt-3 text-center text-[10px] font-bold leading-tight text-[var(--color-muted)]">
                         {skill}
                       </p>
                     </div>
@@ -436,13 +436,13 @@ export default function HomePage() {
       </section>
 
       {/* Section Education & Languages */}
-      <section id="education" className="border-b border-slate-200 bg-white">
+      <section id="education" className="border-b border-[var(--color-border)] bg-[var(--color-surface)]">
         <div className="mx-auto max-w-6xl px-4 py-12 sm:px-6 sm:py-16 lg:py-24">
           <RevealOnScroll className="mb-8 max-w-2xl sm:mb-12">
             <p className="section-label mb-3 text-xs font-black uppercase tracking-[0.18em] text-[var(--color-accent-hover)]">
               Education & Languages
             </p>
-            <h2 className="text-3xl font-black tracking-tight text-slate-950 sm:text-4xl">
+            <h2 className="text-3xl font-black tracking-tight text-[var(--color-text)] sm:text-4xl">
               Background and communication.
             </h2>
           </RevealOnScroll>
@@ -452,11 +452,11 @@ export default function HomePage() {
               {education.map((item, index) => (
                 <RevealOnScroll key={item.institution} delay={index * 90}>
                 <article
-                  className="card-hover rounded-2xl border border-slate-200 bg-slate-50/60 p-4 sm:p-6"
+                  className="card-hover rounded-2xl border border-[var(--color-border)] bg-[var(--color-surface-soft)] p-4 sm:p-6"
                 >
                   <div className="flex flex-col gap-3 sm:flex-row sm:flex-wrap sm:items-start sm:justify-between sm:gap-4">
                     <div>
-                      <h3 className="text-lg font-black text-slate-950 sm:text-xl">{item.degree}</h3>
+                      <h3 className="text-lg font-black text-[var(--color-text)] sm:text-xl">{item.degree}</h3>
                       <p className="mt-1 text-sm font-bold text-[var(--color-accent-hover)]">
                         {item.institution}
                       </p>
@@ -467,7 +467,7 @@ export default function HomePage() {
                           GPAX {item.gpa}
                         </span>
                       )}
-                      <time className="rounded-full border border-slate-200 bg-white px-3 py-1 text-xs font-bold text-slate-600">
+                      <time className="rounded-full border border-[var(--color-border)] bg-[var(--color-surface)] px-3 py-1 text-xs font-bold text-[var(--color-muted)]">
                         {item.period}
                       </time>
                     </div>
@@ -475,7 +475,7 @@ export default function HomePage() {
                   {item.activities && (
                     <ul className="mt-4 space-y-2">
                       {item.activities.map((activity) => (
-                        <li key={activity} className="flex gap-2 text-sm leading-6 text-slate-600">
+                        <li key={activity} className="flex gap-2 text-sm leading-6 text-[var(--color-muted)]">
                           <span className="mt-2 h-1.5 w-1.5 shrink-0 rounded-full bg-emerald-500" aria-hidden="true" />
                           {activity}
                         </li>
@@ -488,15 +488,15 @@ export default function HomePage() {
             </div>
 
             <RevealOnScroll delay={120} direction="right">
-            <div className="card-hover h-full rounded-2xl border border-slate-200 bg-slate-50/60 p-4 sm:p-6">
-              <h3 className="text-sm font-black uppercase tracking-[0.16em] text-slate-700">
+            <div className="card-hover h-full rounded-2xl border border-[var(--color-border)] bg-[var(--color-surface-soft)] p-4 sm:p-6">
+              <h3 className="text-sm font-black uppercase tracking-[0.16em] text-[var(--color-subtle)]">
                 Languages
               </h3>
               <div className="mt-5 space-y-4">
                 {languages.map((lang) => (
-                  <div key={lang.name} className="rounded-xl border border-slate-200 bg-white p-4">
-                    <p className="text-base font-black text-slate-950">{lang.name}</p>
-                    <p className="mt-1 text-sm leading-6 text-slate-500">{lang.level}</p>
+                  <div key={lang.name} className="rounded-xl border border-[var(--color-border)] bg-[var(--color-surface)] p-4">
+                    <p className="text-base font-black text-[var(--color-text)]">{lang.name}</p>
+                    <p className="mt-1 text-sm leading-6 text-[var(--color-muted)]">{lang.level}</p>
                   </div>
                 ))}
               </div>
@@ -507,20 +507,20 @@ export default function HomePage() {
       </section>
 
       {/* Section About */}
-      <section id="about" className="border-b border-slate-200 bg-[var(--color-cream)]">
+      <section id="about" className="border-b border-[var(--color-border)] bg-[var(--color-cream)]">
         <div className="mx-auto grid max-w-6xl gap-6 px-4 py-12 sm:gap-10 sm:px-6 sm:py-16 lg:grid-cols-[0.85fr_1.15fr] lg:py-20">
           <RevealOnScroll direction="left">
           <div>
             <p className="section-label mb-3 text-xs font-black uppercase tracking-[0.18em] text-[var(--color-accent-hover)]">
               About
             </p>
-            <h2 className="text-3xl font-black tracking-tight text-slate-950 sm:text-4xl">
+            <h2 className="text-3xl font-black tracking-tight text-[var(--color-text)] sm:text-4xl">
               I like software that feels useful on the first click.
             </h2>
           </div>
           </RevealOnScroll>
           <RevealOnScroll delay={100} direction="right">
-          <div className="space-y-4 text-sm leading-7 text-slate-600 sm:space-y-5 sm:text-base sm:leading-8">
+          <div className="space-y-4 text-sm leading-7 text-[var(--color-muted)] sm:space-y-5 sm:text-base sm:leading-8">
             <p>
               I work across frontend and backend, with a strong interest in AI integration, vector databases, clean product interfaces, and systems that are easy to test and improve.
             </p>
@@ -536,7 +536,7 @@ export default function HomePage() {
       </section>
 
       {/* Section Contact */}
-      <section id="contact" className="bg-white">
+      <section id="contact" className="bg-[var(--color-surface)]">
         <div className="mx-auto max-w-6xl px-4 py-12 sm:px-6 sm:py-16 lg:py-24">
           <RevealOnScroll direction="scale">
           <div className="rounded-2xl bg-gradient-to-br from-emerald-400/40 via-emerald-500/10 to-slate-900/20 p-px shadow-2xl sm:rounded-3xl">
@@ -564,7 +564,7 @@ export default function HomePage() {
                     className="card-hover flex min-w-0 items-center gap-3 rounded-xl border border-white/10 bg-white/[0.04] p-3 sm:gap-4 sm:p-4"
                     aria-label={link.label}
                   >
-                    <span className="flex h-10 w-10 shrink-0 items-center justify-center rounded-lg bg-emerald-300 text-slate-950 sm:h-11 sm:w-11">
+                    <span className="flex h-10 w-10 shrink-0 items-center justify-center rounded-lg bg-emerald-300 text-emerald-950 sm:h-11 sm:w-11">
                       {link.icon}
                     </span>
                     <span className="min-w-0">

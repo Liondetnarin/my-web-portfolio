@@ -14,7 +14,6 @@ export default function MobileMenu({ links }: { links: NavLink[] }) {
 
   return (
     <div className="md:hidden">
-      {/* Hamburger Button */}
       <button
         id="mobile-menu-toggle"
         onClick={() => setOpen(!open)}
@@ -33,10 +32,9 @@ export default function MobileMenu({ links }: { links: NavLink[] }) {
         />
       </button>
 
-      {/* Dropdown */}
       {open && (
         <div className="absolute left-0 right-0 top-full border-b border-emerald-400/25 bg-[#020617] shadow-2xl">
-          <nav className="mx-auto flex max-w-6xl flex-col gap-1 px-6 py-4">
+          <nav className="mx-auto flex max-w-6xl flex-col gap-1 px-6 py-4" aria-label="Mobile navigation">
             {links.map((link) => (
               <Link
                 key={link.href}
@@ -52,7 +50,7 @@ export default function MobileMenu({ links }: { links: NavLink[] }) {
                 href={personalInfo.resumeUrl}
                 download
                 onClick={() => setOpen(false)}
-                className="mt-2 inline-flex items-center justify-center gap-2 rounded-md border border-emerald-300/40 bg-emerald-400 px-4 py-3 text-center text-xs font-black uppercase tracking-[0.14em] text-slate-950 transition-colors hover:bg-emerald-300"
+                className="mt-2 inline-flex items-center justify-center gap-2 rounded-md border border-emerald-300/40 bg-emerald-400 px-4 py-3 text-center text-xs font-black uppercase tracking-[0.14em] text-emerald-950 transition-colors hover:bg-emerald-300"
               >
                 <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
                   <path d="M12 3v12" />

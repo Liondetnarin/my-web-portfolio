@@ -1,7 +1,7 @@
 import { ImageResponse } from "next/og";
 import { personalInfo } from "@/lib/data";
 
-export const alt = `${personalInfo.name} — Software Developer Portfolio`;
+export const alt = `${personalInfo.name} - Software Developer Portfolio`;
 export const size = { width: 1200, height: 630 };
 export const contentType = "image/png";
 

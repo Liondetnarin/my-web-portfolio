@@ -1,5 +1,6 @@
 import Link from "next/link";
 import MobileMenu from "./MobileMenu";
+import ThemeToggle from "./ThemeToggle";
 import { personalInfo } from "@/lib/data";
 
 const navLinks = [
@@ -15,10 +16,9 @@ export default function Navbar() {
   return (
     <header
       id="site-header"
-      className="sticky top-0 z-50 border-b border-emerald-400/25 bg-[#020617] shadow-[0_10px_40px_rgba(2,6,23,0.35)] transition-all duration-300 data-[scrolled=true]:border-emerald-400/40 data-[scrolled=true]:bg-[#020617]/92 data-[scrolled=true]:shadow-[0_16px_48px_rgba(2,6,23,0.5)] data-[scrolled=true]:backdrop-blur-md"
+      className="fixed inset-x-0 top-0 z-50 border-b border-emerald-400/25 bg-[#020617] shadow-[0_10px_40px_rgba(2,6,23,0.35)] transition-all duration-300 data-[scrolled=true]:border-emerald-400/40 data-[scrolled=true]:bg-[#020617]/92 data-[scrolled=true]:shadow-[0_16px_48px_rgba(2,6,23,0.5)] data-[scrolled=true]:backdrop-blur-md"
     >
       <div className="relative mx-auto flex h-14 max-w-6xl min-w-0 items-center justify-between px-4 sm:h-16 sm:px-6">
-        {/* Logo */}
         <Link
           href="/"
           className="rounded-md px-1 py-1 text-xs font-black tracking-tight text-white transition-colors hover:bg-white/10 hover:text-emerald-300 sm:px-2 sm:text-sm"
@@ -29,7 +29,6 @@ export default function Navbar() {
           </span>
         </Link>
 
-        {/* Desktop Nav */}
         <nav aria-label="Main navigation" className="hidden items-center gap-2 md:flex">
           {navLinks.map((link) => (
             <Link
@@ -42,13 +41,13 @@ export default function Navbar() {
           ))}
         </nav>
 
-        {/* CTA + Mobile */}
         <div className="flex items-center gap-3">
+          <ThemeToggle />
           {personalInfo.resumeUrl ? (
             <a
               href={personalInfo.resumeUrl}
               download
-              className="hidden items-center gap-2 rounded-md border border-emerald-300/40 bg-emerald-400 px-4 py-2.5 text-[11px] font-black uppercase tracking-[0.14em] text-slate-950 shadow-[0_0_24px_rgba(52,211,153,0.22)] transition-colors hover:border-emerald-200 hover:bg-emerald-300 md:inline-flex"
+              className="hidden items-center gap-2 rounded-md border border-emerald-300/40 bg-emerald-400 px-4 py-2.5 text-[11px] font-black uppercase tracking-[0.14em] text-emerald-950 shadow-[0_0_24px_rgba(52,211,153,0.22)] transition-colors hover:border-emerald-200 hover:bg-emerald-300 md:inline-flex"
             >
               <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
                 <path d="M12 3v12" />

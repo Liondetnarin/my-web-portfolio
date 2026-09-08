@@ -1,6 +1,6 @@
 This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
 
-# Dev Portfolio — Detnarin Chaiaksorn
+# Dev Portfolio - Detnarin Chaiaksorn
 
 Personal web portfolio built to showcase my projects, skills, and experience as a Full-Stack Developer.
 
@@ -8,7 +8,7 @@ Personal web portfolio built to showcase my projects, skills, and experience as 
 
 ## 🔗 Live Demo
 
-https://my-web-portfolio-fawn.vercel.app/
+https://www.detnarin.me
 
 ---
 

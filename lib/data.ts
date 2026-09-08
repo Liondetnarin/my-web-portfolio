@@ -14,7 +14,7 @@ export const personalInfo: PersonalInfo = {
   role: "Software Developer",
   heroLead:
     "Internship-ready developer with hands-on experience in AI voice assistants, vector databases, and production web apps.",
-  heroHighlight: "FORVIZ Intern · UTCC Computer Science · GPAX 3.44 · May 2026",
+  heroHighlight: "UTCC Computer Science · GPAX 3.44",
   bio: "I turn requirements into working software - from Python backends and CMS sites to user-tested product interfaces.",
   email: "detnarin.cha@gmail.com",
   github: "https://github.com/Liondetnarin",
@@ -213,6 +213,6 @@ export const languages: Language[] = [
   { name: "Thai", level: "Native" },
   {
     name: "English",
-    level: "B2 Intermediate — technical docs & workplace communication",
+    level: "B2 Intermediate - technical docs & workplace communication",
   },
 ];

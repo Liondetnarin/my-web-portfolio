@@ -1,12 +1,19 @@
 @import "tailwindcss";
 
+@custom-variant dark (&:where([data-theme="dark"], [data-theme="dark"] *));
+
 /* ─── Design Tokens ─── */
 :root {
+  color-scheme: light;
   --color-cream: #f6f8fb;
   --color-surface: #ffffff;
+  --color-surface-soft: #f8fafc;
+  --color-surface-muted: #f1f5f9;
   --color-border: #e2e8f0;
+  --color-border-strong: #cbd5e1;
   --color-text: #0f172a;
   --color-muted: #64748b;
+  --color-subtle: #334155;
   --color-accent: #10b981;
   --color-accent-hover: #059669;
   --color-accent-light: #d1fae5;
@@ -14,6 +21,22 @@
   --color-dark-soft: #111827;
   --color-dark-muted: #94a3b8;
   --font-sans: "Inter", system-ui, -apple-system, sans-serif;
+}
+
+:root[data-theme="dark"] {
+  color-scheme: dark;
+  --color-cream: #070b12;
+  --color-surface: #0f172a;
+  --color-surface-soft: #111827;
+  --color-surface-muted: #172033;
+  --color-border: #263449;
+  --color-border-strong: #3a4a61;
+  --color-text: #f8fafc;
+  --color-muted: #a8b4c5;
+  --color-subtle: #d5dce7;
+  --color-accent: #34d399;
+  --color-accent-hover: #6ee7b7;
+  --color-accent-light: #0c3b31;
 }
 
 @theme inline {
@@ -54,6 +77,7 @@ body {
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   overflow-x: hidden;
+  transition: background-color 180ms ease, color 180ms ease;
 }
 
 ::selection {
@@ -88,6 +112,10 @@ h4 {
 ::-webkit-scrollbar-thumb {
   background: var(--color-border);
   border-radius: 3px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: var(--color-border-strong);
 }
 
 /* ─── Scroll reveal ─── */
@@ -241,4 +269,9 @@ h4 {
     opacity: 1;
     transform: none;
   }
+
+  body {
+    transition: none;
+  }
+
 }

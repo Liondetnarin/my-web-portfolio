@@ -27,7 +27,7 @@ export default function ScrollProgress() {
 
   return (
     <div
-      className="pointer-events-none fixed inset-x-0 top-0 z-[60] h-0.5 bg-slate-900/10"
+      className="pointer-events-none fixed inset-x-0 top-0 z-[60] h-0.5 bg-[color-mix(in_srgb,var(--color-text)_10%,transparent)]"
       aria-hidden="true"
     >
       <div

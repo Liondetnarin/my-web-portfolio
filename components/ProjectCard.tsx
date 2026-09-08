@@ -33,10 +33,10 @@ export default function ProjectCard({ project, compact = false }: ProjectCardPro
 
   return (
     <article
-      className={`group flex h-full flex-col overflow-hidden rounded-2xl border border-slate-200 bg-white transition-all duration-200 ${
+      className={`group flex h-full flex-col overflow-hidden rounded-2xl border border-[var(--color-border)] bg-[var(--color-surface)] transition-all duration-200 ${
         compact
           ? "hover:border-emerald-200"
-          : "shadow-sm hover:-translate-y-1 hover:border-slate-300 hover:shadow-xl max-sm:hover:translate-y-0"
+          : "shadow-sm hover:-translate-y-1 hover:border-[var(--color-border-strong)] hover:shadow-xl max-sm:hover:translate-y-0"
       }`}
     >
       <div className="relative aspect-[16/9] overflow-hidden bg-[var(--color-dark)]">
@@ -69,11 +69,11 @@ export default function ProjectCard({ project, compact = false }: ProjectCardPro
 
       <div className={`flex flex-1 flex-col ${compact ? "p-4 sm:p-5" : "p-4 sm:p-5"}`}>
         <div className={compact ? "mb-4" : "mb-3"}>
-          <h3 className="text-lg font-bold tracking-tight text-slate-950 transition-colors group-hover:text-[var(--color-accent-hover)]">
+          <h3 className="text-lg font-bold tracking-tight text-[var(--color-text)] transition-colors group-hover:text-[var(--color-accent-hover)]">
             {project.title}
           </h3>
           <p
-            className={`mt-2 text-sm leading-6 text-slate-600 ${
+            className={`mt-2 text-sm leading-6 text-[var(--color-muted)] ${
               compact ? "line-clamp-2" : "min-h-[3rem]"
             }`}
           >
@@ -82,7 +82,7 @@ export default function ProjectCard({ project, compact = false }: ProjectCardPro
         </div>
 
         {!compact && (
-          <p className="mb-4 text-sm leading-6 text-slate-500">
+          <p className="mb-4 text-sm leading-6 text-[var(--color-muted)]">
             {project.contribution}
           </p>
         )}
@@ -91,24 +91,24 @@ export default function ProjectCard({ project, compact = false }: ProjectCardPro
           {visibleTech.map((tech) => (
             <span
               key={tech}
-              className="rounded-md border border-slate-200 bg-slate-50 px-2.5 py-1 text-[11px] font-semibold text-slate-600"
+              className="rounded-md border border-[var(--color-border)] bg-[var(--color-surface-soft)] px-2.5 py-1 text-[11px] font-semibold text-[var(--color-muted)]"
             >
               {tech}
             </span>
           ))}
           {hiddenTechCount > 0 && (
-            <span className="rounded-md border border-slate-200 bg-slate-50 px-2.5 py-1 text-[11px] font-semibold text-slate-500">
+            <span className="rounded-md border border-[var(--color-border)] bg-[var(--color-surface-soft)] px-2.5 py-1 text-[11px] font-semibold text-[var(--color-muted)]">
               +{hiddenTechCount}
             </span>
           )}
         </div>
 
-        <div className={`flex items-center gap-2 border-t border-slate-100 pt-4 sm:gap-3 ${compact ? "mt-4" : "mt-5"}`}>
+        <div className={`flex items-center gap-2 border-t border-[var(--color-border)] pt-4 sm:gap-3 ${compact ? "mt-4" : "mt-5"}`}>
           <a
             href={project.githubUrl}
             target="_blank"
             rel="noopener noreferrer"
-            className="inline-flex items-center gap-2 rounded-md border border-slate-200 px-3 py-2 text-xs font-bold text-slate-700 transition-colors hover:border-slate-900 hover:text-slate-950"
+            className="inline-flex items-center gap-2 rounded-md border border-[var(--color-border)] px-3 py-2 text-xs font-bold text-[var(--color-subtle)] transition-colors hover:border-[var(--color-text)] hover:text-[var(--color-text)]"
             aria-label={`View ${project.title} source code on GitHub`}
           >
             <svg
@@ -128,7 +128,7 @@ export default function ProjectCard({ project, compact = false }: ProjectCardPro
               href={project.demoUrl}
               target="_blank"
               rel="noopener noreferrer"
-              className="inline-flex items-center gap-2 rounded-md border border-emerald-500 bg-emerald-400 px-3 py-2 text-xs font-black text-slate-950 shadow-sm transition-colors hover:border-slate-950 hover:bg-slate-950 hover:text-white"
+              className="inline-flex items-center gap-2 rounded-md border border-emerald-500 bg-emerald-400 px-3 py-2 text-xs font-black text-emerald-950 shadow-sm transition-colors hover:border-slate-950 hover:bg-slate-950 hover:text-white"
               aria-label={`View ${project.title} live demo`}
             >
               <svg
@@ -146,7 +146,7 @@ export default function ProjectCard({ project, compact = false }: ProjectCardPro
                 <path d="M7 17 17 7" />
                 <path d="M7 7h10v10" />
               </svg>
-              Demo
+              View
             </a>
           )}
           {project.canvaUrl && (
@@ -154,7 +154,7 @@ export default function ProjectCard({ project, compact = false }: ProjectCardPro
               href={project.canvaUrl}
               target="_blank"
               rel="noopener noreferrer"
-              className="inline-flex items-center gap-2 rounded-md border border-violet-200 bg-violet-50 px-3 py-2 text-xs font-bold text-violet-700 transition-colors hover:border-violet-600 hover:bg-violet-600 hover:text-white"
+              className="inline-flex items-center gap-2 rounded-md border border-violet-200 bg-violet-50 px-3 py-2 text-xs font-bold text-violet-700 transition-colors hover:border-violet-600 hover:bg-violet-600 hover:text-white dark:border-violet-400/30 dark:bg-violet-400/10 dark:text-violet-300"
               aria-label={`View ${project.title} presentation on Canva`}
             >
               <svg
@@ -175,7 +175,7 @@ export default function ProjectCard({ project, compact = false }: ProjectCardPro
               href={project.youtubeUrl}
               target="_blank"
               rel="noopener noreferrer"
-              className="inline-flex items-center gap-2 rounded-md border border-red-200 bg-red-50 px-3 py-2 text-xs font-bold text-red-700 transition-colors hover:border-red-600 hover:bg-red-600 hover:text-white"
+              className="inline-flex items-center gap-2 rounded-md border border-red-200 bg-red-50 px-3 py-2 text-xs font-bold text-red-700 transition-colors hover:border-red-600 hover:bg-red-600 hover:text-white dark:border-red-400/30 dark:bg-red-400/10 dark:text-red-300"
               aria-label={`Watch ${project.title} on YouTube`}
             >
               <svg

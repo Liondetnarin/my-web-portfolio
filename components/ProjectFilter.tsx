@@ -28,7 +28,7 @@ export default function ProjectFilter({ projects }: ProjectFilterProps) {
   return (
     <div>
       {/* Filter Buttons */}
-      <div className="mb-8 rounded-xl border border-slate-200 bg-white p-2 shadow-sm">
+      <div className="mb-8 rounded-xl border border-[var(--color-border)] bg-[var(--color-surface)] p-2 shadow-sm">
         <div
           role="group"
           aria-label="Filter projects by category"
@@ -48,12 +48,12 @@ export default function ProjectFilter({ projects }: ProjectFilterProps) {
                 onClick={() => setActive(filter.value)}
                 className={`rounded-lg px-4 py-2 text-sm font-bold transition-all ${
                   active === filter.value
-                    ? "bg-slate-950 text-white shadow-sm"
-                    : "text-slate-500 hover:bg-slate-100 hover:text-slate-950"
+                    ? "bg-[var(--color-text)] text-[var(--color-surface)] shadow-sm"
+                    : "text-[var(--color-muted)] hover:bg-[var(--color-surface-soft)] hover:text-[var(--color-text)]"
                 }`}
               >
                 {filter.label}
-                <span className={active === filter.value ? "ml-2 text-white/70" : "ml-2 text-slate-400"}>
+                <span className={active === filter.value ? "ml-2 opacity-70" : "ml-2 text-[var(--color-muted)]"}>
                   {count}
                 </span>
               </button>

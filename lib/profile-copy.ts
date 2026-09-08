@@ -1,12 +1,12 @@
 import { personalInfo } from "@/lib/data";
 import { SITE_URL } from "@/lib/site";
 
-/** Copy aligned with portfolio — paste into GitHub profile README or LinkedIn */
+/** Copy aligned with portfolio - paste into GitHub profile README or LinkedIn */
 
 export const linkedinHeadline =
   "Software Developer | AI Voice Systems · Full-Stack Web · Next.js · Python · Spring Boot";
 
-export const linkedinAbout = `Computer Science student at UTCC (GPAX 3.44, graduating May 2026) with internship experience at FORVIZ Company Limited, where I worked on an AI Voice Assistant — Python backend, vector database architecture, Google ADK, LiveKit, and UI from Figma.
+export const linkedinAbout = `Computer Science student at UTCC (GPAX 3.44, graduating May 2026) with internship experience at FORVIZ Company Limited, where I worked on an AI Voice Assistant - Python backend, vector database architecture, Google ADK, LiveKit, and UI from Figma.
 
 I build production-ready web apps (Next.js, TypeScript, Sanity CMS), full-stack platforms (React, Spring Boot, MongoDB), and interactive projects including an award-winning Unity game (2nd place, UTCC showcase 2026).
 
@@ -17,7 +17,7 @@ export const githubProfileReadme = `# Hi, I'm Detnarin Chaiaksorn 👋
 
 **Software Developer** · CS @ UTCC · GPAX 3.44 · Graduating May 2026
 
-Internship experience at **FORVIZ** — AI Voice Assistant (Python, vector DB, Google ADK, LiveKit).
+Internship experience at **FORVIZ** - AI Voice Assistant (Python, vector DB, Google ADK, LiveKit).
 
 ## What I build
 - AI-assisted backends & voice systems

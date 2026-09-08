@@ -1,5 +1,6 @@
 import type { Metadata, Viewport } from "next";
 import { Inter } from "next/font/google";
+import Script from "next/script";
 import "./globals.css";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
@@ -17,7 +18,7 @@ const inter = Inter({
 export const metadata: Metadata = {
   metadataBase: new URL(SITE_URL),
   title: {
-    default: `${personalInfo.name} — Software Developer`,
+    default: `${personalInfo.name} - Software Developer`,
     template: `%s | ${personalInfo.name}`,
   },
   description: DEFAULT_OG_DESCRIPTION,
@@ -26,20 +27,20 @@ export const metadata: Metadata = {
     locale: "en_US",
     url: SITE_URL,
     siteName: SITE_NAME,
-    title: `${personalInfo.name} — Software Developer`,
+    title: `${personalInfo.name} - Software Developer`,
     description: DEFAULT_OG_DESCRIPTION,
     images: [
       {
         url: "/opengraph-image",
         width: 1200,
         height: 630,
-        alt: `${personalInfo.name} — Software Developer Portfolio`,
+        alt: `${personalInfo.name} - Software Developer Portfolio`,
       },
     ],
   },
   twitter: {
     card: "summary_large_image",
-    title: `${personalInfo.name} — Software Developer`,
+    title: `${personalInfo.name} - Software Developer`,
     description: DEFAULT_OG_DESCRIPTION,
     images: ["/opengraph-image"],
   },
@@ -53,7 +54,23 @@ export const viewport: Viewport = {
   width: "device-width",
   initialScale: 1,
   viewportFit: "cover",
+  colorScheme: "light dark",
+  themeColor: [
+    { media: "(prefers-color-scheme: light)", color: "#f6f8fb" },
+    { media: "(prefers-color-scheme: dark)", color: "#070b12" },
+  ],
 };
+
+const themeScript = `
+  try {
+    const savedTheme = localStorage.getItem("portfolio-theme");
+    const theme = savedTheme === "light" || savedTheme === "dark"
+      ? savedTheme
+      : (matchMedia("(prefers-color-scheme: dark)").matches ? "dark" : "light");
+    document.documentElement.dataset.theme = theme;
+    document.documentElement.style.colorScheme = theme;
+  } catch (_) {}
+`;
 
 export default function RootLayout({
   children,
@@ -61,12 +78,15 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en" className={`${inter.variable} h-full`}>
+    <html lang="en" className={`${inter.variable} h-full`} suppressHydrationWarning>
       <body className="flex min-h-full flex-col antialiased">
+        <Script id="theme-init" strategy="beforeInteractive">
+          {themeScript}
+        </Script>
         <ScrollProgress />
         <NavbarScrollEnhancer />
         <Navbar />
-        <main id="main-content" className="min-w-0 flex-1">
+        <main id="main-content" className="min-w-0 flex-1 pt-14 sm:pt-16">
           {children}
         </main>
         <Footer />

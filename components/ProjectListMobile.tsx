@@ -88,7 +88,7 @@ export default function ProjectListMobile({ projects }: ProjectListMobileProps) 
             className={`rounded-full transition-all duration-200 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[var(--color-accent)] ${
               activeIndex === index
                 ? "h-2 w-8 bg-[var(--color-accent)]"
-                : "h-2 w-2 bg-slate-300 hover:bg-slate-400"
+                : "h-2 w-2 bg-[var(--color-border-strong)] hover:bg-[var(--color-muted)]"
             }`}
             aria-label={`Go to ${project.title}`}
           />
