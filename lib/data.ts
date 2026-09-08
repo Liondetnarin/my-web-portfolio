@@ -24,16 +24,43 @@ export const personalInfo: PersonalInfo = {
   resumeUrl: "/resume/detnarin-chaiaksorn-resume.pdf",
 };
 
-export const heroStats: HeroStat[] = [
-  // { label: "Projects", value: "6+" },
-  // { label: "GPAX", value: "3.44" },
-  // { label: "Graduation", value: "May 2026" },
-  // { label: "Languages", value: "TH / EN" },
-];
+export const heroStats: HeroStat[] = [];
 
 export const projects: Project[] = [
   {
     id: "1",
+    title: "One Flag Thailand",
+    summary: "Official website and presentation hub for One Flag Thailand.",
+    description:
+      "Official website for One Flag Thailand, a national initiative created to make history and pursue a new world record for Thailand.",
+    contribution:
+      "Built with Next.js, TypeScript, Tailwind CSS, and Sanity CMS for dynamic content management, then deployed to production on Vercel.",
+    techStack: ["Next.js", "TypeScript", "Tailwind CSS", "Sanity"],
+    imageUrl: "/images/img-one.webp",
+    githubUrl: "https://github.com/Liondetnarin",
+    demoUrl: "https://oneflagthailand.com",
+    category: "fullstack",
+    featured: true,
+    badge: "Production Website",
+  },
+  {
+    id: "2",
+    title: "Luck Ju",
+    summary: "B2C e-commerce storefront for collectible art toys.",
+    description:
+      "Responsive online storefront designed to present and sell collectible art toys.",
+    contribution:
+      "Built with Next.js, TypeScript, Tailwind CSS, Supabase, and Omise, with PromptPay QR as the supported payment method.",
+    techStack: ["Next.js", "TypeScript", "Tailwind CSS", "Supabase", "Omise"],
+    imageUrl: "/images/img-lj.webp",
+    githubUrl: "https://github.com/Liondetnarin",
+    demoUrl: "https://luck-ju.vercel.app",
+    category: "fullstack",
+    featured: true,
+    badge: "Production Website",
+  },
+  {
+    id: "3",
     title: "WenWorks",
     summary: "CMS-powered multilingual marketing website built with Next.js.",
     description:
@@ -49,7 +76,7 @@ export const projects: Project[] = [
     badge: "Production Website",
   },
   {
-    id: "2",
+    id: "4",
     title: "Dino Marcom",
     summary: "CMS-driven marketing landing page with dynamic content management.",
     description:
@@ -65,7 +92,7 @@ export const projects: Project[] = [
     badge: "CMS Landing Page",
   },
   {
-    id: "3",
+    id: "5",
     title: "TF-Superbike",
     summary: "Web landing page for a high-performance motorcycle business.",
     description:
@@ -80,7 +107,7 @@ export const projects: Project[] = [
     badge: "Production Website",
   },
   {
-    id: "4",
+    id: "6",
     title: "Coding is Magic",
     summary: "Award-winning 2D game that teaches Python through puzzle play.",
     description:
@@ -97,7 +124,7 @@ export const projects: Project[] = [
     badge: "2nd Place Award",
   },
   {
-    id: "5",
+    id: "7",
     title: "UTCC PHOBIA",
     summary: "3D horror game prototype built with Unreal Engine 5.",
     description:
@@ -112,7 +139,7 @@ export const projects: Project[] = [
     badge: "3D Game",
   },
   {
-    id: "6",
+    id: "8",
     title: "UniFood",
     summary: "Restaurant review platform with rankings, filtering, and user ratings.",
     description:
