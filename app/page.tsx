@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import type { ReactNode } from "react";
 import Link from "next/link";
 import ProjectList from "@/components/ProjectList";
+import SkillsArchitecture from "@/components/SkillsArchitecture";
 import RevealOnScroll from "@/components/RevealOnScroll";
 import {
   education,
@@ -10,7 +11,6 @@ import {
   languages,
   personalInfo,
   projects,
-  skillCategories,
 } from "@/lib/data";
 import type { ExperienceImage } from "@/types";
 
@@ -33,34 +33,6 @@ const heroTechTags = [
   { name: "Spring Boot", icon: "/images/icon-svg/spring-boot-com.svg" },
   { name: "AI Agents", icon: "/images/skills/google-adk.svg" },
 ];
-
-const skillIconPathMap: Record<string, string> = {
-  HTML: "/images/icon-svg/html-5-svgrepo-com.svg",
-  CSS: "/images/icon-svg/css-3-svgrepo-com.svg",
-  JavaScript: "/images/icon-svg/javascript-svgrepo-com.svg",
-  TypeScript: "/images/icon-svg/typescript-svgrepo-com.svg",
-  React: "/images/icon-svg/react-svgrepo-com.svg",
-  "Next.js": "/images/icon-svg/nextjs-fill-svgrepo-com.svg",
-  "Tailwind CSS": "/images/icon-svg/tailwind-svgrepo-com.svg",
-  "Node.js": "/images/icon-svg/node-svgrepo-com.svg",
-  Python: "/images/icon-svg/python-svgrepo-com.svg",
-  Java: "/images/icon-svg/java-svgrepo-com.svg",
-  "Spring Boot": "/images/icon-svg/spring-boot-com.svg",
-  "Next.js API Routes": "/images/icon-svg/nextjs-fill-svgrepo-com.svg",
-  MongoDB: "/images/icon-svg/mongodb-svgrepo-com.svg",
-  Git: "/images/icon-svg/git-svgrepo-com.svg",
-  "C#": "/images/icon-svg/csharp-svgrepo-com.svg",
-  MySQL: "/images/icon-svg/mysql-logo-svgrepo-com.svg",
-  Supabase: "/images/icon-svg/supabase-icon.svg",
-  Figma: "/images/icon-svg/figma-svgrepo-com.svg",
-  "Google ADK": "/images/skills/google-adk.svg",
-  Docker: "/images/icon-svg/docker-svgrepo-com.svg",
-  Vercel: "/images/icon-svg/nextjs-fill-svgrepo-com.svg",
-  "CI/CD": "/images/icon-svg/git-svgrepo-com.svg",
-  "AI Agents": "/images/skills/google-adk.svg",
-  "Prompt Engineering": "/images/skills/google-adk.svg",
-  "Machine Learning": "/images/icon-svg/python-svgrepo-com.svg",
-};
 
 const socialLinks = [
   {
@@ -96,10 +68,6 @@ const socialLinks = [
     ),
   },
 ];
-
-function getSkillIcon(skill: string) {
-  return skillIconPathMap[skill] ?? `/images/skills/${skill.toLowerCase().replace(/[^a-z0-9]/g, "-")}.svg`;
-}
 
 function ExperiencePhotos({ images }: { images: ExperienceImage[] }) {
   const captionOverlay = (caption?: string) =>
@@ -274,7 +242,7 @@ export default function HomePage() {
       <section id="projects" className="relative border-b border-[var(--color-border)] bg-[var(--color-cream)]">
         <div className="mx-auto max-w-6xl px-4 py-12 sm:px-6 sm:py-16 lg:py-20">
           <RevealOnScroll>
-            <ProjectList projects={projects.filter((project) => project.featured)} />
+            <ProjectList projects={projects} />
           </RevealOnScroll>
         </div>
       </section>
@@ -295,36 +263,9 @@ export default function HomePage() {
             </p>
           </RevealOnScroll>
 
-          <div className="grid gap-4 sm:gap-5 md:grid-cols-2 lg:grid-cols-3">
-            {skillCategories.map((category, index) => (
-              <RevealOnScroll key={category.name} delay={index * 90}>
-                <section className="card-hover h-full rounded-2xl border border-[var(--color-border)] bg-[var(--color-surface-soft)] p-4 sm:p-5">
-                <h3 className="mb-4 text-xs font-black uppercase tracking-[0.16em] text-[var(--color-subtle)] sm:mb-5 sm:text-sm">
-                  {category.name}
-                </h3>
-                <div className="grid grid-cols-3 gap-2 sm:gap-3">
-                  {category.skills.map((skill) => (
-                    <div key={skill} className="rounded-xl border border-[var(--color-border)] bg-[var(--color-surface)] p-2 shadow-sm transition-colors hover:border-emerald-400/50 hover:bg-[var(--color-accent-light)] sm:p-3 lg:transition-transform lg:hover:scale-[1.06]">
-                      <div className="mx-auto flex h-9 w-9 items-center justify-center rounded-lg bg-[var(--color-surface-soft)] p-1.5 sm:h-11 sm:w-11 sm:p-2">
-                        {/* eslint-disable-next-line @next/next/no-img-element */}
-                        <img
-                          src={getSkillIcon(skill)}
-                          alt={skill}
-                          width={32}
-                          height={32}
-                          className="h-full w-full object-contain"
-                        />
-                      </div>
-                      <p className="mt-3 text-center text-[10px] font-bold leading-tight text-[var(--color-muted)]">
-                        {skill}
-                      </p>
-                    </div>
-                  ))}
-                </div>
-              </section>
-              </RevealOnScroll>
-            ))}
-          </div>
+          <RevealOnScroll>
+            <SkillsArchitecture projects={projects} />
+          </RevealOnScroll>
         </div>
       </section>
 
@@ -450,8 +391,13 @@ export default function HomePage() {
                     </div>
                     <div className="flex flex-wrap gap-2">
                       {item.gpa && (
-                        <span className="rounded-full border border-emerald-200 bg-emerald-50 px-3 py-1 text-xs font-black text-emerald-700">
+                        <span className="rounded-full border border-emerald-200 bg-emerald-50 px-3 py-1 text-xs font-black text-emerald-700 dark:border-emerald-800 dark:bg-emerald-950 dark:text-emerald-300">
                           GPAX {item.gpa}
+                        </span>
+                      )}
+                      {item.honors && (
+                        <span className="rounded-full border border-emerald-200 bg-emerald-50 px-3 py-1 text-xs font-black text-emerald-700 dark:border-emerald-800 dark:bg-emerald-950 dark:text-emerald-300">
+                          {item.honors}
                         </span>
                       )}
                       <time className="rounded-full border border-[var(--color-border)] bg-[var(--color-surface)] px-3 py-1 text-xs font-bold text-[var(--color-muted)]">

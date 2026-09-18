@@ -13,7 +13,7 @@ export const personalInfo: PersonalInfo = {
   role: "Software Developer",
   heroLead:
     "Software developer building practical web experiences, AI-assisted systems, and interactive products.",
-  heroHighlight: "UTCC Computer Science · GPAX 3.44",
+  heroHighlight: "UTCC Computer Science · Second-Class Honors · GPAX 3.44",
   bio: "I turn requirements into working software - from Python backends and CMS sites to user-tested product interfaces.",
   email: "detnarin.cha@gmail.com",
   github: "https://github.com/Liondetnarin",
@@ -227,6 +227,7 @@ export const education: Education[] = [
     degree: "Bachelor of Science in Computer Science",
     period: "August 2022 – May 2026",
     gpa: "3.44",
+    honors: "Second-Class Honors",
     activities: [
       "Awarded 2nd place at university showcase 2026 for final project (Coding is Magic).",
     ],

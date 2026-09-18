@@ -49,6 +49,7 @@ export interface Education {
   degree: string;
   period: string;
   gpa?: string;
+  honors?: string;
   activities?: string[];
 }
 
