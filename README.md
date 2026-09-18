@@ -6,7 +6,7 @@ technical skills, education, and contact information in a responsive interface.
 
 ## Live site
 
-[www.detnarin.me](https://www.detnarin.me)
+[detnarin.me](https://www.detnarin.me)
 
 ## Highlights
 
