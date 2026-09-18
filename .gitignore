@@ -43,3 +43,18 @@ yarn-error.log*
 # typescript
 *.tsbuildinfo
 next-env.d.ts
+
+# local tooling and editor files
+Thumbs.db
+Desktop.ini
+*.swp
+*.swo
+/.idea/
+/.impeccable/config.local.json
+/.agents/skills/
+/skills-lock.json
+
+# test runner output
+/playwright-report/
+/test-results/
+/blob-report/

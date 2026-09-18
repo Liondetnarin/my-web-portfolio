@@ -10,7 +10,9 @@ export const metadata: Metadata = {
     title: "Projects | Detnarin Chaiaksorn",
     description:
       "Browse Detnarin Chaiaksorn's portfolio of practical software projects.",
+    images: ["/opengraph-image"],
   },
+  alternates: { canonical: "/projects" },
 };
 
 export default function ProjectsPage() {
@@ -24,7 +26,7 @@ export default function ProjectsPage() {
           Projects
         </h1>
         <p className="mt-4 text-base leading-7 text-[var(--color-muted)]">
-          A focused collection of web apps, AI work, mobile interfaces, and game projects. Filter by category to see how each build fits the stack.
+          A focused collection of web apps, full-stack platforms, and interactive projects. Filter by category to explore each build.
         </p>
       </header>
 

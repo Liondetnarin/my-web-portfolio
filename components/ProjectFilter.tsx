@@ -6,14 +6,6 @@ import type { Project, ProjectCategory } from "@/types";
 
 type FilterOption = "all" | ProjectCategory;
 
-const FILTERS: { label: string; value: FilterOption }[] = [
-  { label: "All", value: "all" },
-  { label: "Web", value: "web" },
-  { label: "AI", value: "ai" },
-  { label: "Full-Stack", value: "fullstack" },
-  { label: "Mobile", value: "mobile" },
-  { label: "Game", value: "game" },
-];
 
 interface ProjectFilterProps {
   projects: Project[];
@@ -21,6 +13,7 @@ interface ProjectFilterProps {
 
 export default function ProjectFilter({ projects }: ProjectFilterProps) {
   const [active, setActive] = useState<FilterOption>("all");
+  const FILTERS = [{ label: "All", value: "all" as const }, ...Array.from(new Set(projects.map((project) => project.category))).map((value) => ({ label: value === "fullstack" ? "Full-Stack" : value[0].toUpperCase() + value.slice(1), value }))];
 
   const filtered =
     active === "all" ? projects : projects.filter((p) => p.category === active);
@@ -46,6 +39,7 @@ export default function ProjectFilter({ projects }: ProjectFilterProps) {
                 id={`filter-${filter.value}`}
                 type="button"
                 onClick={() => setActive(filter.value)}
+                aria-pressed={active === filter.value}
                 className={`rounded-lg px-4 py-2 text-sm font-bold transition-all ${
                   active === filter.value
                     ? "bg-[var(--color-text)] text-[var(--color-surface)] shadow-sm"

@@ -23,7 +23,7 @@ export default function RevealOnScroll({
   threshold = 0.08,
 }: RevealOnScrollProps) {
   const ref = useRef<HTMLDivElement>(null);
-  const [visible, setVisible] = useState(false);
+  const [visible, setVisible] = useState(true);
   const [instant, setInstant] = useState(false);
   const scrollingDown = useRef(true);
   const lastScrollY = useRef(0);

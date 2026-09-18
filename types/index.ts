@@ -7,7 +7,8 @@ export interface Project {
   description: string;
   contribution: string;
   techStack: string[];
-  githubUrl: string;
+  slug: string;
+  githubUrl?: string;
   demoUrl?: string;
   youtubeUrl?: string;
   canvaUrl?: string;
@@ -54,11 +55,6 @@ export interface Education {
 export interface Language {
   name: string;
   level: string;
-}
-
-export interface HeroStat {
-  label: string;
-  value: string;
 }
 
 export interface PersonalInfo {

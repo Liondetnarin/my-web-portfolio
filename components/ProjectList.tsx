@@ -1,6 +1,5 @@
 import Link from "next/link";
 import ProjectCard from "./ProjectCard";
-import ProjectListMobile from "./ProjectListMobile";
 import type { Project } from "@/types";
 
 interface ProjectListProps {
@@ -23,8 +22,7 @@ export default function ProjectList({ projects }: ProjectListProps) {
             Selected work
           </h2>
           <p className="mt-3 text-sm leading-7 text-[var(--color-muted)] sm:text-base">
-            <span className="md:hidden">Swipe to browse projects.</span>
-            <span className="hidden md:inline">Web, AI, full-stack, and interactive projects.</span>
+            Web, AI, full-stack, and interactive projects.
           </p>
         </div>
 
@@ -36,9 +34,7 @@ export default function ProjectList({ projects }: ProjectListProps) {
         </Link>
       </div>
 
-      <ProjectListMobile projects={projects} />
-
-      {/* Tablet & desktop - grid rows */}      <ul className="hidden list-none gap-6 md:grid md:grid-cols-2 lg:grid-cols-3">
+      <ul className="grid list-none gap-6 sm:grid-cols-2 lg:grid-cols-3">
         {projects.map((project) => (
           <li key={project.id} className="h-full">
             <ProjectCard project={project} />

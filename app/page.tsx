@@ -7,7 +7,6 @@ import {
   education,
   experienceAward,
   experiences,
-  heroStats,
   languages,
   personalInfo,
   projects,
@@ -23,7 +22,9 @@ export const metadata: Metadata = {
     title: "Detnarin Chaiaksorn - Software Developer",
     description:
       "Software Developer specializing in AI voice systems, vector databases, full-stack web apps, and interactive software projects.",
+    images: ["/opengraph-image"],
   },
+  alternates: { canonical: "/" },
 };
 
 const heroTechTags = [
@@ -220,20 +221,6 @@ export default function HomePage() {
               {personalInfo.bio}
             </p>
 
-            <div className="hero-animate hero-delay-5 mx-auto mt-6 grid max-w-md grid-cols-2 gap-2 sm:mt-8 sm:max-w-none sm:gap-3 sm:grid-cols-4 lg:mx-0">
-              {heroStats.map((stat) => (
-                <div
-                  key={stat.label}
-                  className="card-hover rounded-xl border border-[var(--color-border)] bg-[var(--color-surface)]/90 px-3 py-2.5 shadow-sm backdrop-blur-sm sm:px-4 sm:py-3"
-                >
-                  <p className="text-lg font-black text-[var(--color-text)] sm:text-xl">{stat.value}</p>
-                  <p className="mt-0.5 text-[10px] font-bold uppercase tracking-[0.1em] text-[var(--color-muted)] sm:text-[11px] sm:tracking-[0.12em]">
-                    {stat.label}
-                  </p>
-                </div>
-              ))}
-            </div>
-
             <div className="hero-animate hero-delay-5 mt-4 flex flex-wrap justify-center gap-2 sm:mt-5 lg:justify-start">
               {heroTechTags.map((tech) => (
                 <span
@@ -287,7 +274,7 @@ export default function HomePage() {
       <section id="projects" className="relative border-b border-[var(--color-border)] bg-[var(--color-cream)]">
         <div className="mx-auto max-w-6xl px-4 py-12 sm:px-6 sm:py-16 lg:py-20">
           <RevealOnScroll>
-            <ProjectList projects={projects} />
+            <ProjectList projects={projects.filter((project) => project.featured)} />
           </RevealOnScroll>
         </div>
       </section>

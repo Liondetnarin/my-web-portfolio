@@ -2,7 +2,6 @@ import type {
   Education,
   Experience,
   ExperienceAward,
-  HeroStat,
   Language,
   PersonalInfo,
   Project,
@@ -13,7 +12,7 @@ export const personalInfo: PersonalInfo = {
   name: "Detnarin Chaiaksorn",
   role: "Software Developer",
   heroLead:
-    "Internship-ready developer with hands-on experience in AI voice assistants, vector databases, and production web apps.",
+    "Software developer building practical web experiences, AI-assisted systems, and interactive products.",
   heroHighlight: "UTCC Computer Science · GPAX 3.44",
   bio: "I turn requirements into working software - from Python backends and CMS sites to user-tested product interfaces.",
   email: "detnarin.cha@gmail.com",
@@ -24,11 +23,10 @@ export const personalInfo: PersonalInfo = {
   resumeUrl: "/resume/detnarin-chaiaksorn-resume.pdf",
 };
 
-export const heroStats: HeroStat[] = [];
-
 export const projects: Project[] = [
   {
     id: "1",
+    slug: "one-flag-thailand",
     title: "One Flag Thailand",
     summary: "Official website and presentation hub for One Flag Thailand.",
     description:
@@ -37,7 +35,6 @@ export const projects: Project[] = [
       "Built with Next.js, TypeScript, Tailwind CSS, and Sanity CMS for dynamic content management, then deployed to production on Vercel.",
     techStack: ["Next.js", "TypeScript", "Tailwind CSS", "Sanity"],
     imageUrl: "/images/img-one.webp",
-    githubUrl: "https://github.com/Liondetnarin",
     demoUrl: "https://oneflagthailand.com",
     category: "fullstack",
     featured: true,
@@ -45,6 +42,7 @@ export const projects: Project[] = [
   },
   {
     id: "2",
+    slug: "luck-ju",
     title: "Luck Ju",
     summary: "B2C e-commerce storefront for collectible art toys.",
     description:
@@ -53,7 +51,6 @@ export const projects: Project[] = [
       "Built with Next.js, TypeScript, Tailwind CSS, Supabase, and Omise, with PromptPay QR as the supported payment method.",
     techStack: ["Next.js", "TypeScript", "Tailwind CSS", "Supabase", "Omise"],
     imageUrl: "/images/img-lj.webp",
-    githubUrl: "https://github.com/Liondetnarin",
     demoUrl: "https://luck-ju.vercel.app",
     category: "fullstack",
     featured: true,
@@ -61,6 +58,7 @@ export const projects: Project[] = [
   },
   {
     id: "3",
+    slug: "wenworks",
     title: "WenWorks",
     summary: "CMS-powered multilingual marketing website built with Next.js.",
     description:
@@ -69,7 +67,6 @@ export const projects: Project[] = [
       "Delivered responsive pages, CMS content structure, multilingual routing, and production-ready architecture.",
     techStack: ["Next.js", "TypeScript", "Tailwind CSS", "Sanity"],
     imageUrl: "/images/img-ww.webp",
-    githubUrl: "https://github.com/Liondetnarin",
     demoUrl: "https://www.wenworks.co/th",
     category: "web",
     featured: true,
@@ -77,6 +74,7 @@ export const projects: Project[] = [
   },
   {
     id: "4",
+    slug: "dino-marcom",
     title: "Dino Marcom",
     summary: "CMS-driven marketing landing page with dynamic content management.",
     description:
@@ -85,14 +83,13 @@ export const projects: Project[] = [
       "Built responsive layouts, CMS schema, and deployment pipeline with Vercel.",
     techStack: ["Next.js", "TypeScript", "Tailwind CSS", "Sanity"],
     imageUrl: "/images/img-dino-marcom.webp",
-    githubUrl: "https://github.com/Liondetnarin",
     demoUrl: "https://dinomarcom.vercel.app/th",
     category: "web",
-    featured: true,
     badge: "CMS Landing Page",
   },
   {
     id: "5",
+    slug: "tf-superbike",
     title: "TF-Superbike",
     summary: "Web landing page for a high-performance motorcycle business.",
     description:
@@ -101,13 +98,13 @@ export const projects: Project[] = [
       "Created responsive design, performance optimizations, and presentation-ready web experience with Next.js and Tailwind CSS.",
     techStack: ["Next.js", "Tailwind CSS", "TypeScript"],
     imageUrl: "/images/img-tf.webp",
-    githubUrl: "https://github.com/Liondetnarin",
     demoUrl: "https://tf-superbike.vercel.app/",
     category: "fullstack",
     badge: "Production Website",
   },
   {
     id: "6",
+    slug: "coding-is-magic",
     title: "Coding is Magic",
     summary: "Award-winning 2D game that teaches Python through puzzle play.",
     description:
@@ -125,6 +122,7 @@ export const projects: Project[] = [
   },
   {
     id: "7",
+    slug: "utcc-phobia",
     title: "UTCC PHOBIA",
     summary: "3D horror game prototype built with Unreal Engine 5.",
     description:
@@ -133,13 +131,13 @@ export const projects: Project[] = [
       "Created interactive gameplay, environments, and presentation-ready horror experience in Unreal Engine 5.",
     techStack: ["Unreal Engine 5", "Blender", "3D"],
     imageUrl: "/images/img-utcc.webp",
-    githubUrl: "https://github.com/Liondetnarin",
     youtubeUrl: "https://youtu.be/dMLk6AdQNng",
     category: "game",
     badge: "3D Game",
   },
   {
     id: "8",
+    slug: "unifood",
     title: "UniFood",
     summary: "Restaurant review platform with rankings, filtering, and user ratings.",
     description:
@@ -148,7 +146,6 @@ export const projects: Project[] = [
       "Built full-stack features across React UI, Spring Boot APIs, MongoDB data, and review filtering flows.",
     techStack: ["React", "Vite", "Spring Boot", "MongoDB"],
     imageUrl: "/images/img-unifood.webp",
-    githubUrl: "https://github.com/Liondetnarin",
     //demoUrl: "https://unifood.vercel.app/",
     canvaUrl: "https://canva.link/qpttc7ehv75oau9",
     category: "fullstack",
@@ -240,6 +237,6 @@ export const languages: Language[] = [
   { name: "Thai", level: "Native" },
   {
     name: "English",
-    level: "B2 Intermediate - technical docs & workplace communication",
+    level: "Good command of technical docs & basic workplace communication",
   },
 ];

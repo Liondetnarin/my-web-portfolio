@@ -73,13 +73,16 @@ const themeScript = `
 `;
 
 export default function RootLayout({
+  modal,
   children,
 }: Readonly<{
+  modal: React.ReactNode;
   children: React.ReactNode;
 }>) {
   return (
     <html lang="en" className={`${inter.variable} h-full`} suppressHydrationWarning>
       <body className="flex min-h-full flex-col antialiased">
+        <a href="#main-content" className="sr-only focus:not-sr-only focus:fixed focus:left-4 focus:top-4 focus:z-[100] focus:rounded-md focus:bg-emerald-400 focus:px-4 focus:py-2 focus:font-bold focus:text-emerald-950">Skip to content</a>
         <Script id="theme-init" strategy="beforeInteractive">
           {themeScript}
         </Script>
@@ -89,6 +92,7 @@ export default function RootLayout({
         <main id="main-content" className="min-w-0 flex-1 pt-14 sm:pt-16">
           {children}
         </main>
+        {modal}
         <Footer />
       </body>
     </html>

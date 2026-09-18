@@ -1,4 +1,4 @@
-# Detnarin Chaiaksorn — Developer Portfolio
+# Detnarin Chaiaksorn - Developer Portfolio
 
 Personal portfolio for Detnarin Chaiaksorn, a software developer focused on
 building practical, polished web experiences. The site presents selected work,
@@ -13,7 +13,8 @@ technical skills, education, and contact information in a responsive interface.
 - Responsive portfolio layout for desktop and mobile devices
 - Persistent light and dark themes with system-preference support
 - Fixed navigation with section links and mobile navigation
-- Filterable project showcase with dedicated mobile presentation
+- Filterable project showcase with responsive project cards
+- Featured work on the home page with shareable project detail routes and accessible modal navigation
 - SEO metadata, Open Graph images, sitemap, and robots configuration
 - Accessible motion behavior that respects reduced-motion preferences
 
@@ -34,6 +35,7 @@ components/   Reusable sections and UI components
 lib/          Portfolio content and shared data
 public/       Images, icons, and downloadable assets
 types/        Shared TypeScript types
+CONTEXT.md    Portfolio vocabulary and content boundaries
 ```
 
 ## Local development
@@ -74,6 +76,13 @@ npm audit
 Environment files are ignored by Git. Keep secrets in local or deployment
 environment variables and never expose private credentials through variables
 prefixed with `NEXT_PUBLIC_`.
+
+### Adding a project
+
+Add the project to `lib/data.ts` with a unique `slug`. Set `featured: true` only
+for work that should appear on the home page. Use a real repository URL in
+`githubUrl` only when that project's source is public; leave it out otherwise.
+The detail page and shareable URL are generated from the same project record.
 
 ## Deployment
 
