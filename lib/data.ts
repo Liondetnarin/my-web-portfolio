@@ -5,7 +5,6 @@ import type {
   Language,
   PersonalInfo,
   Project,
-  SkillCategory,
 } from "@/types";
 
 export const personalInfo: PersonalInfo = {
@@ -153,33 +152,6 @@ export const projects: Project[] = [
   },
 ];
 
-export const skillCategories: SkillCategory[] = [
-  {
-    name: "Frontend",
-    skills: ["HTML", "CSS", "JavaScript", "React", "Next.js", "Tailwind CSS"],
-  },
-  {
-    name: "Backend",
-    skills: ["Node.js", "Spring Boot", "Java", "Python"],
-  },
-  {
-    name: "Database",
-    skills: ["MySQL", "MongoDB", "Supabase"],
-  },
-  {
-    name: "RESTful API",
-    skills: ["Next.js API Routes", "Node.js", "Spring Boot"],
-  },
-  {
-    name: "AI & Machine Learning",
-    skills: ["AI Agents", "Prompt Engineering", "Machine Learning"],
-  },
-  {
-    name: "Deployment & Tools",
-    skills: ["Vercel", "CI/CD", "Git", "Docker", "Figma"],
-  },
-];
-
 export const experiences: Experience[] = [
   {
     company: "FORVIZ Company Limited",
@@ -238,6 +210,6 @@ export const languages: Language[] = [
   { name: "Thai", level: "Native" },
   {
     name: "English",
-    level: "Good command of technical docs & basic workplace communication",
+    level: "Good command of technical docs & communication",
   },
 ];
