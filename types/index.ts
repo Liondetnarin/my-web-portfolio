@@ -18,11 +18,6 @@ export interface Project {
   badge?: string;
 }
 
-export interface SkillCategory {
-  name: string;
-  skills: string[];
-}
-
 export interface ExperienceImage {
   src: string;
   alt: string;
